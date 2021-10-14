@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Budget Buddy</string>
+    <string name="mainEmail">Email Address</string>
+    <string name="mainPassword">Password</string>
+    <string name="mainLogin">Login</string>
+    <string name="mainRegister">Register</string>
+    <string name="registerPage">Register Page</string>
+    <string name="registerFName">First Name</string>
+    <string name="registerLName">Last Name</string>
+    <string name="registerEMail">Email Address</string>
+    <string name="registerPassword">Password</string>
+    <string name="registerNextPage">Next Page</string>
+    <string name="registerCancel">Cancel</string>
+    <string name="registerLifeStyle">Life Style</string>
+
+    <string-array name="lifeStyles">
+        <item>Adult</item>
+        <item>Student</item>
+        <item>Elderly</item>
+        <item>Business</item>
+    </string-array>
 </resources>
