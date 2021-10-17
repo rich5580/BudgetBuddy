@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -38,8 +39,25 @@ public class RegisterActivity extends AppCompatActivity {
 //                mail = String.valueOf(email.getText());
 //                pw = String.valueOf(password.getText());
 
-                Intent intent = new Intent(RegisterActivity.this, RegisterContActivity.class);
-                startActivity(intent);
+                if (spin.getSelectedItem().toString().equals("Adult")) {
+                    Intent intent = new Intent(RegisterActivity.this, AdultStyleActivity.class);
+                    startActivity(intent);
+                }
+                else if (spin.getSelectedItem().toString().equals("Student")){
+                    Intent intent = new Intent(RegisterActivity.this, StudentStyleActivity.class);
+                    startActivity(intent);
+                }
+                else if (spin.getSelectedItem().toString().equals("Elderly")){
+                    Intent intent = new Intent(RegisterActivity.this, ElderlyStyleActivity.class);
+                    startActivity(intent);
+                }
+                else if (spin.getSelectedItem().toString().equals("Business")) {
+                    Intent intent = new Intent(RegisterActivity.this, BusinessStyleActivity.class);
+                    startActivity(intent);
+                }
+
+
+
             }
         });
 

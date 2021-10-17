@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BudgetBuddy">
         <activity
+            android:name=".ElderlyStyleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BusinessStyleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StudentStyleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AdultStyleActivity"
+            android:exported="true" />
+        <activity
             android:name=".RegisterContActivity"
             android:exported="true" />
         <activity
