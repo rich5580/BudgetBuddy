@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+    <EditText
+        android:id="@+id/et_Reg_PWConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/registerRePassword"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.616" />
+
     <TextView
         android:id="@+id/tv_Reg_Title"
         android:layout_width="wrap_content"
@@ -34,7 +49,7 @@
         app:layout_constraintVertical_bias="0.335" />
 
     <EditText
-        android:id="@+id/ed_Reg_LName"
+        android:id="@+id/et_Reg_LName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -109,7 +124,7 @@
         app:layout_constraintHorizontal_bias="0.851"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_Reg_Password"
-        app:layout_constraintVertical_bias="0.351" />
+        app:layout_constraintVertical_bias="0.824" />
 
     <TextView
         android:id="@+id/tv_lifeStyle"
@@ -118,12 +133,12 @@
         android:minHeight="48dp"
         android:text="@string/registerLifeStyle"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/spinner"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_Reg_Password"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintVertical_bias="0.221" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
