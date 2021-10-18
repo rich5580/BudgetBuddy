@@ -9,20 +9,6 @@
     android:id="@+id/test"
     tools:context=".StudentStyleActivity">
 
-
-    <ListView
-        android:id="@+id/yesCar"
-        android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:layout_below="@+id/sw_Student_Car"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="633dp" />
-
     <Button
         android:id="@+id/btn_Student_back"
         android:layout_width="wrap_content"
@@ -33,16 +19,43 @@
         android:layout_marginBottom="13dp"
         android:text="Button" />
 
+
     <Switch
         android:id="@+id/sw_Student_Car"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="-1dp"
         android:layout_marginEnd="0dp"
         android:text="Do you own a Car?"
         android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_Student_Insurance"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="242dp"
+        android:text="Insurance?"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_Student_Gas"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="74dp"
+        android:text="Gas?"
+        android:textSize="18sp"
+        android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 
