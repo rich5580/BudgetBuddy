@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -26,7 +27,8 @@ import android.widget.Toast;
 public class StudentStyleActivity extends AppCompatActivity {
 
     Button btn_back;
-    Switch sw_car,sw_insurance,sw_gas;
+    Switch sw_car,sw_insurance,sw_gas, sw_rent, sw_tuition, sw_job;
+    EditText edt_monthlyRent, edt_weeklyJob;
     Boolean switchState;
 
     @Override
@@ -36,6 +38,47 @@ public class StudentStyleActivity extends AppCompatActivity {
 
         sw_insurance = (Switch) findViewById(R.id.sw_Student_Insurance);
         sw_gas = (Switch) findViewById(R.id.sw_Student_Gas);
+        edt_monthlyRent = (EditText) findViewById(R.id.edt_rentAmount);
+        edt_weeklyJob = (EditText) findViewById(R.id.edt_weeklyJob);
+
+        sw_rent = (Switch) findViewById(R.id.sw_Rent);
+        sw_rent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchState = sw_rent.isChecked();
+
+                if (switchState == Boolean.TRUE) {
+                    edt_monthlyRent.setVisibility(View.VISIBLE);
+
+                } else {
+                    edt_monthlyRent.setVisibility(View.INVISIBLE);
+                    edt_monthlyRent.setText("");
+                }
+            }
+        });
+
+        sw_tuition = (Switch) findViewById(R.id.sw_Tuition);
+        sw_tuition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        sw_job = (Switch) findViewById(R.id.sw_Job);
+        sw_job.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchState = sw_job.isChecked();
+
+                if (switchState == Boolean.TRUE) {
+                    edt_weeklyJob.setVisibility(View.VISIBLE);
+                } else {
+                    edt_weeklyJob.setVisibility(View.INVISIBLE);
+                    edt_weeklyJob.setText("");
+                }
+            }
+        });
 
         sw_car = (Switch) findViewById(R.id.sw_Student_Car);
         sw_car.setOnClickListener(new View.OnClickListener() {

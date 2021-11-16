@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BudgetBuddy">
         <activity
+            android:name=".BreakdownPageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SettingPageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EnterDataActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DetailsPageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomeScreenActivity"
+            android:exported="true" />
+        <activity
             android:name=".ElderlyStyleActivity"
             android:exported="true" />
         <activity
@@ -17,7 +32,13 @@
             android:exported="true" />
         <activity
             android:name=".StudentStyleActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".AdultStyleActivity"
             android:exported="true" />
@@ -27,11 +48,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

@@ -57,5 +57,75 @@
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
+    <Switch
+        android:id="@+id/sw_Rent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Student_Insurance"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="3dp"
+        android:text="Do you pay Rent? (Includes all utilities)"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_rentAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Rent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="202dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+    <Switch
+        android:id="@+id/sw_Tuition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Student_Insurance"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="3dp"
+        android:text="Do you pay for Tuition?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_Job"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Student_Insurance"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="106dp"
+        android:layout_marginEnd="3dp"
+        android:text="Do you have a Job?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_weeklyJob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Rent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="107dp"
+        android:layout_marginEnd="201dp"
+        android:ems="10"
+        android:hint="$/Week"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
 
 </RelativeLayout>

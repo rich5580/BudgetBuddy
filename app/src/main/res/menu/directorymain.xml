@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/home"
+        android:title="Home"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_baseline_home_24"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/details"
+        android:title="Details Page"
+        android:orderInCategory="2"
+        android:icon="@drawable/ic_baseline_article_24"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/enterData"
+        android:title="Test"
+        android:orderInCategory="3"
+        android:icon="@drawable/ic_baseline_create_24"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/settings"
+        android:title="Enter Data Page"
+        android:orderInCategory="5"
+        android:icon="@drawable/ic_baseline_settings_24"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/breakdown"
+        android:title="Breakdown Page"
+        android:orderInCategory="4"
+        android:icon="@drawable/ic_baseline_bar_chart_24"
+        app:showAsAction="always"/>
+
+</menu>

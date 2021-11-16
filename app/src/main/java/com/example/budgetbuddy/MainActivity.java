@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +29,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mail = String.valueOf(email.getText());
                 pw = String.valueOf(password.getText());
+                Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
+
+                if (mail.equals("") || pw.equals("")) {
+                    Toast toast = Toast.makeText(MainActivity.this, "Please enter email and/or password before you can login.", Toast.LENGTH_LONG);
+                    toast.show();
+                } else {
+                    startActivity(intent);
+                }
 
             }
         });
