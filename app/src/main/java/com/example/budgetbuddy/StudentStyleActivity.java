@@ -26,9 +26,11 @@ import android.widget.Toast;
 
 public class StudentStyleActivity extends AppCompatActivity {
 
-    Button btn_back;
-    Switch sw_car,sw_insurance,sw_gas, sw_rent, sw_tuition, sw_job;
-    EditText edt_monthlyRent, edt_weeklyJob;
+    Button btn_cancel, btn_finish;
+    Switch sw_car,sw_insurance,sw_gas, sw_rent, sw_tuition, sw_job,
+            sw_dependencies, sw_dependKid, sw_dependPet,
+            sw_loan, sw_transit;
+    EditText edt_monthlyRent, edt_weeklyJob, edt_monthlyTransit;
     Boolean switchState;
 
     @Override
@@ -36,10 +38,16 @@ public class StudentStyleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_style);
 
+        // Switches
         sw_insurance = (Switch) findViewById(R.id.sw_Student_Insurance);
         sw_gas = (Switch) findViewById(R.id.sw_Student_Gas);
+        sw_dependKid = (Switch) findViewById(R.id.sw_dependKid);
+        sw_dependPet = (Switch) findViewById(R.id.sw_dependPet);
+
+        // Edit Texts
         edt_monthlyRent = (EditText) findViewById(R.id.edt_rentAmount);
         edt_weeklyJob = (EditText) findViewById(R.id.edt_weeklyJob);
+        edt_monthlyTransit = (EditText) findViewById(R.id.edt_monthlyTransit);
 
         sw_rent = (Switch) findViewById(R.id.sw_Rent);
         sw_rent.setOnClickListener(new View.OnClickListener() {
@@ -90,9 +98,8 @@ public class StudentStyleActivity extends AppCompatActivity {
                 if (switchState == Boolean.TRUE) {
                     sw_insurance.setVisibility(View.VISIBLE);
                     sw_gas.setVisibility(View.VISIBLE);
-                    sw_insurance.setText("Insurance?");
                 }
-                else if (switchState == Boolean.FALSE) {
+                else {
                     sw_insurance.setChecked(Boolean.FALSE);
                     sw_gas.setChecked(Boolean.FALSE);
                     sw_insurance.setVisibility(View.INVISIBLE);
@@ -101,11 +108,70 @@ public class StudentStyleActivity extends AppCompatActivity {
             }
         });
 
-        btn_back = (Button) findViewById(R.id.btn_Student_back);
-        btn_back.setOnClickListener(new View.OnClickListener() {
+        sw_dependencies = (Switch) findViewById(R.id.sw_dependencies);
+        sw_dependencies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchState = sw_dependencies.isChecked();
+
+                if (switchState == Boolean.TRUE) {
+                    sw_dependKid.setVisibility(View.VISIBLE);
+                    sw_dependPet.setVisibility(View.VISIBLE);
+                }
+                else {
+                    sw_dependKid.setChecked(Boolean.FALSE);
+                    sw_dependPet.setChecked(Boolean.FALSE);
+                    sw_dependKid.setVisibility(View.INVISIBLE);
+                    sw_dependPet.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        sw_loan = (Switch) findViewById(R.id.sw_loan);
+        sw_loan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchState = sw_loan.isChecked();
+
+                if (switchState == Boolean.TRUE) {
+
+                }
+                else {
+
+                }
+            }
+        });
+
+        sw_transit = (Switch) findViewById(R.id.sw_transit);
+        sw_transit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchState = sw_transit.isChecked();
+
+                if (switchState == Boolean.TRUE) {
+                    edt_monthlyTransit.setVisibility(View.VISIBLE);
+                }
+                else {
+                    edt_monthlyTransit.setVisibility(View.INVISIBLE);
+                    edt_monthlyTransit.setText("");
+                }
+            }
+        });
+
+        btn_cancel = (Button) findViewById(R.id.btn_Student_cancel);
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(StudentStyleActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_finish = (Button) findViewById(R.id.btn_finishRegistration);
+        btn_finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StudentStyleActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

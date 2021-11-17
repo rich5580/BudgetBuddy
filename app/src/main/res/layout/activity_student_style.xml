@@ -10,14 +10,14 @@
     tools:context=".StudentStyleActivity">
 
     <Button
-        android:id="@+id/btn_Student_back"
+        android:id="@+id/btn_Student_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="13dp"
-        android:text="Back" />
+        android:text="Cancel" />
 
     <Switch
         android:id="@+id/sw_Student_Car"
@@ -81,7 +81,7 @@
         android:layout_marginEnd="202dp"
         android:ems="10"
         android:hint="$/Month"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
         android:visibility="invisible" />
@@ -127,5 +127,93 @@
         android:textSize="18sp"
         android:visibility="invisible" />
 
+    <Switch
+        android:id="@+id/sw_dependencies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Student_Insurance"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="182dp"
+        android:layout_marginEnd="-2dp"
+        android:text="Do you have any Dependencies?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_dependKid"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="264dp"
+        android:layout_marginEnd="244dp"
+        android:text="Children?"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_dependPet"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="263dp"
+        android:layout_marginEnd="77dp"
+        android:text="Pets?"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_loan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Student_Insurance"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="241dp"
+        android:layout_marginEnd="-2dp"
+        android:text="Do you have any Loans?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_transit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Student_Insurance"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="268dp"
+        android:layout_marginEnd="-1dp"
+        android:text="Do use any types of transit?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_monthlyTransit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Rent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="268dp"
+        android:layout_marginEnd="201dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/btn_finishRegistration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="199dp"
+        android:text="Finish Regristration" />
 
 </RelativeLayout>
