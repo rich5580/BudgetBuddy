@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,19 +10,278 @@
         android:id="@+id/btn_Elderly_Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="4dp"
+        android:text="Cancel"
+        app:layout_constraintVertical_bias="0.976" />
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/btn_Elderly_Finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Elderly"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Elderly_Back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="210dp"
+        android:layout_marginBottom="3dp"
+        android:text="Finish Registration"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <Switch
+        android:id="@+id/sw_Elderly_Pension"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="0dp"
+        android:text="Do you have a pension?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_ElderlyPension"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Elderly_Pension"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="27dp" />
+
+    <Switch
+        android:id="@+id/sw_Elderly_Income"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt_ElderlyPension"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="3dp"
+        android:text="Do you recieve any other income?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="72dp" />
+
+    <EditText
+        android:id="@+id/edt_ElderlyIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Elderly_Pension"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="1dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="99dp" />
+
+    <Switch
+        android:id="@+id/sw_Rent_Mortgage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Elderly_Pension"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="122dp"
+        android:layout_marginEnd="1dp"
+        android:text="Do you pay for Rent/Mortgage(utilities included)?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        tools:layout_editor_absoluteX="-22dp"
+        tools:layout_editor_absoluteY="144dp" />
+
+    <EditText
+        android:id="@+id/edt_rentMortgageAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Elderly_Pension"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="167dp"
+        android:layout_marginEnd="-1dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="189dp" />
+
+    <Switch
+        android:id="@+id/sw_Health_Life_Insurance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Elderly_Pension"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="0dp"
+        android:text="Do you pay for Health/Life Insurance?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="234dp" />
+
+    <EditText
+        android:id="@+id/edt_HealthLifeInsurance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Elderly_Pension"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="239dp"
+        android:layout_marginEnd="3dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="261dp" />
+
+    <Switch
+        android:id="@+id/sw_transit2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Elderly_Pension"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="0dp"
+        android:text="Do use any types of transit?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        tools:layout_editor_absoluteX="-45dp"
+        tools:layout_editor_absoluteY="306dp" />
+
+    <EditText
+        android:id="@+id/edt_monthlyTransit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Rent_Mortgage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="146dp"
+        android:layout_marginEnd="201dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+    <Switch
+        android:id="@+id/sw_Elderly_Car"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="385dp"
+        android:layout_marginEnd="1dp"
+        android:text="Do you own a Car?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_Elderly_Insurance"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="413dp"
+        android:layout_marginEnd="247dp"
+        android:text="Insurance?"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_Elderly_Gas"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="417dp"
+        android:layout_marginEnd="3dp"
+        android:text="Gas?"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_groceries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Elderly_Pension"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="420dp"
+        android:layout_marginEnd="1dp"
+        android:text="Do you buy your own groceries?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_monthlyGroceries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Rent_Mortgage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="200dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+    <Switch
+        android:id="@+id/sw_Leisure_Misc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Rent_Mortgage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="335dp"
+        android:layout_marginEnd="-9dp"
+        android:text="How much do you spend on other expenses (ex. leisure)?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_LeisureMisc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Rent_Mortgage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="384dp"
+        android:layout_marginEnd="201dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+
+</RelativeLayout>

@@ -2,7 +2,10 @@ package com.example.budgetbuddy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText fName, lName, email, password, repassword;
     public String first, last, mail, pw, repw;
     Spinner spin;
+    Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,9 @@ public class RegisterActivity extends AppCompatActivity {
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(myAdapter);
 
+        UserDatabaseHelper helper = new UserDatabaseHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
+
         next = (Button) findViewById(R.id.btn_Reg_Next);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +58,14 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast toast = Toast.makeText(RegisterActivity.this, "Please fill out register form before continuing.", Toast.LENGTH_LONG);
                         toast.show();
                     } else {
+                        ContentValues values = new ContentValues();
+                        values.put(UserDatabaseHelper.email, mail);
+                        values.put(UserDatabaseHelper.f_name, first);
+                        values.put(UserDatabaseHelper.l_name, last);
+                        values.put(UserDatabaseHelper.password, pw);
+                        db.insert(UserDatabaseHelper.DATABASE_NAME, "NullPlaceholder", values);
+
+
                         if (pw.equals(repw)) {
                             if (spin.getSelectedItem().toString().equals("Adult")) {
                                 Intent intent = new Intent(RegisterActivity.this, AdultStyleActivity.class);
@@ -74,9 +89,6 @@ public class RegisterActivity extends AppCompatActivity {
                         }
 
                     }
-
-
-
 
 
             }
