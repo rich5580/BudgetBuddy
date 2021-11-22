@@ -175,8 +175,5 @@ public class StudentStyleActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-
-
 }

@@ -71,11 +71,11 @@ public class RegisterActivity extends AppCompatActivity {
                                 Intent intent = new Intent(RegisterActivity.this, AdultStyleActivity.class);
                                 startActivity(intent);
                             }
-                            else if (spin.getSelectedItem().toString().equals("Student")){
+                            else if (spin.getSelectedItem().toString().equals("Student")) {
                                 Intent intent = new Intent(RegisterActivity.this, StudentStyleActivity.class);
                                 startActivity(intent);
                             }
-                            else if (spin.getSelectedItem().toString().equals("Elderly")){
+                            else if (spin.getSelectedItem().toString().equals("Elderly")) {
                                 Intent intent = new Intent(RegisterActivity.this, ElderlyStyleActivity.class);
                                 startActivity(intent);
                             }
