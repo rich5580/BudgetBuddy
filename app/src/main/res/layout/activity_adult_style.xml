@@ -1,30 +1,408 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdultStyleActivity">
+    android:columnCount="5"
+    android:rowCount="5"
+    tools:context=".AdultStyleActivity"
+    tools:visibility="visible">
 
     <Button
-        android:id="@+id/btn_Adult_Back"
+        android:id="@+id/btn_Adult_Registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="159dp"
+        android:layout_marginBottom="13dp"
+        android:text="@string/finishRegistration" />
+
+    <Button
+        android:id="@+id/btn_Adult_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="13dp"
+        android:text="@string/cancel" />
+
+    <Switch
+        android:id="@+id/sw_Adult_Car"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="0dp"
+        android:text="Do you own a Car?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/CarLbl"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="99dp"
+        android:ems="10"
+        android:text="Yearly car insurance cost:"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_ACarAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adult"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Adult_Back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_below="@+id/sw_Adult_Car"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="201dp"
+        android:ems="10"
+        android:hint="$/Year"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/GasLbl"
+        android:layout_width="322dp"
+        android:layout_height="29dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="87dp"
+        android:ems="10"
+        android:text="Monthly gas cost estimate:"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_AgasAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_Car"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="202dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+    <Switch
+        android:id="@+id/sw_Adult_property"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_Car"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="126dp"
+        android:layout_marginEnd="0dp"
+        android:text="Do you own a property?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <TextView
+        android:id="@+id/PropInLbl"
+        android:layout_width="322dp"
+        android:layout_height="29dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="147dp"
+        android:layout_marginEnd="87dp"
+        android:ems="10"
+        android:text="Yearly property insurance cost:"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+    <EditText
+        android:id="@+id/edt_APropInAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_Car"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="203dp"
+        android:ems="10"
+        android:hint="$/Year"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+    <Switch
+        android:id="@+id/sw_Adult_mortgage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_property"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="1dp"
+        android:text="Are you currently paying off a mortgage?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_AMortgageAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_Car"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="178dp"
+        android:layout_marginEnd="202dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+    <Switch
+        android:id="@+id/sw_Adult_rent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_mortgage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp"
+        android:text="Are you currently renting a property?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_ARentAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_Car"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="225dp"
+        android:layout_marginEnd="202dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+    <Switch
+        android:id="@+id/sw_Adult_health"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_rent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="-1dp"
+        android:text="Are you paying for health/life insurance?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_AHealthAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_Car"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="274dp"
+        android:layout_marginEnd="201dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+    <Switch
+        android:id="@+id/sw_Adult_income"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_health"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="1dp"
+        android:text="Do you have a source of income?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <TextView
+        android:id="@+id/IncomeLbl"
+        android:layout_width="322dp"
+        android:layout_height="29dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="89dp"
+        android:ems="10"
+        android:text="Estimated monthly income:"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_AIncomeAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_Car"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="347dp"
+        android:layout_marginEnd="203dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+    <Switch
+        android:id="@+id/sw_Adult_dep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_income"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="0dp"
+        android:text="Do you have any dependencies?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_Adult_Children"
+        android:layout_width="143dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="442dp"
+        android:layout_marginEnd="265dp"
+        android:text="Children?"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_Adult_Family"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="442dp"
+        android:layout_marginEnd="164dp"
+        android:text="Family?"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_Adult_Pets"
+        android:layout_width="142dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="464dp"
+        android:layout_marginEnd="266dp"
+        android:text="Pets?"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/sw_Adult_Other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="465dp"
+        android:layout_marginEnd="165dp"
+        android:text="Others?"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <TextView
+        android:id="@+id/DepLbl"
+        android:layout_width="361dp"
+        android:layout_height="53dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="487dp"
+        android:layout_marginEnd="47dp"
+        android:ems="10"
+        android:text="Estimated monthly spending (dependencies + leisure/other):"
+        android:textSize="18sp"
+        android:visibility="visible"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_ADepAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_Car"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="491dp"
+        android:layout_marginEnd="200dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="visible" />
+
+    <Switch
+        android:id="@+id/sw_Adult_debt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_dep"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="111dp"
+        android:layout_marginEnd="3dp"
+        android:text="Are you paying off any debt?"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <EditText
+        android:id="@+id/edt_ADebtAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sw_Adult_Car"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="537dp"
+        android:layout_marginEnd="204dp"
+        android:ems="10"
+        android:hint="$/Month"
+        android:inputType="numberDecimal"
+        android:text=""
+        android:textSize="18sp"
+        android:visibility="invisible" />
+
+
+
+
+</RelativeLayout>
