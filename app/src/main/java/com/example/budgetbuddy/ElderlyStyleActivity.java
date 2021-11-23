@@ -3,7 +3,9 @@ package com.example.budgetbuddy;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,11 @@ public class ElderlyStyleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_elderly_style);
+
+        UserDatabaseHelper helper = new UserDatabaseHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Bundle extras = getIntent().getExtras();
+
         //Switches that do not do anything at the moment
         sw_Insurance = findViewById(R.id.sw_Elderly_Insurance);
         sw_Gas = findViewById(R.id.sw_Elderly_Gas);
@@ -185,6 +192,30 @@ public class ElderlyStyleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ElderlyStyleActivity.this, MainActivity.class);
+                //Insert code here to add to database.
+                ContentValues values = new ContentValues();
+                values.put("pension", sw_Pension.isChecked());
+                values.put("pension_monthly", edt_Pension.getText().toString());
+                values.put("other_income", sw_Income.isChecked());
+                values.put("otherincome_monthly", edt_Income.getText().toString());
+                values.put("rent_mortgage", sw_RentMortgage.isChecked());
+                values.put("rentmortgage_monthly", edt_RentMortgage.getText().toString());
+                values.put("health_life_insurance", sw_HealthLifeInsurance.isChecked());
+                values.put("healthlifeinsurance_monthly", edt_HealthLifeInsurance.getText().toString());
+                values.put("transit", sw_Transit.isChecked());
+                values.put("transit_monthly", edt_Transit.getText().toString());
+                values.put("own_car", sw_Car.isChecked());
+                values.put("car_insurance", sw_Insurance.isChecked());
+                values.put("car_gas", sw_Gas.isChecked());
+                values.put("groceries", sw_Groceries.isChecked());
+                values.put("groceries_monthly", edt_Groceries.getText().toString());
+                values.put("otherexpense_monthly", edt_Leisure.getText().toString());
+
+                if (extras != null) {
+                    Integer value = extras.getInt("user_id");
+                    values.put("user", value);
+                }
+                db.insert("user_elderly", "NullPlaceholder", values);
                 startActivity(intent);
             }
         });

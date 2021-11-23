@@ -2,8 +2,11 @@ package com.example.budgetbuddy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +25,11 @@ public class AdultStyleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adult_style);
+
+        UserDatabaseHelper helper = new UserDatabaseHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Bundle extras = getIntent().getExtras();
+
         // Buttons
         btn_adult_reg = (Button) findViewById(R.id.btn_Adult_Registration);
         btn_cancel = (Button) findViewById(R.id.btn_Adult_cancel);
@@ -59,6 +67,36 @@ public class AdultStyleActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdultStyleActivity.this, MainActivity.class);
+                //Insert code here to add to database.
+                ContentValues values = new ContentValues();
+                values.put("car_owned", sw_car.isChecked());
+                values.put("car_insurance", edt_car.getText().toString());
+                values.put("gas_monthly",edt_gas.getText().toString());
+                values.put("own_property", sw_prop.isChecked());
+                values.put("property_ins_yearly",edt_prop.getText().toString());
+                values.put("mortgage",sw_mort.isChecked());
+                values.put("mortgage_monthly", edt_mort.getText().toString());
+                values.put("renting",sw_rent.isChecked());
+                values.put("rent_monthly",edt_rent.getText().toString());
+                values.put("health_life_insurance",sw_life.isChecked());
+                values.put("health_life_monthly", edt_life.getText().toString());
+                values.put("income", sw_income.isChecked());
+                values.put("income_monthly", edt_income.getText().toString());
+                values.put("dependencies", sw_dep.isChecked());
+                values.put("pet_dependency", sw_pet.isChecked());
+                values.put("children_dependency", sw_child.isChecked());
+                values.put("family_dependency", sw_fam.isChecked());
+                values.put("other_dependency", sw_other.isChecked());
+                values.put("dependency_monthly", edt_dep.getText().toString());
+                values.put("debt", sw_debt.isChecked());
+                values.put("debt_monthly", edt_debt.getText().toString());
+
+                if (extras != null) {
+                    Integer value = extras.getInt("user_id");
+                    values.put("user", value);
+                }
+                db.insert("user_adults", "NullPlaceholder", values);
+
                 startActivity(intent);
             }
         });

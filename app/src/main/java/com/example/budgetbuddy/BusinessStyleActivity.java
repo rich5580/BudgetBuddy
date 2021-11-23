@@ -6,8 +6,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +41,10 @@ public class BusinessStyleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_style);
+
+        UserDatabaseHelper helper = new UserDatabaseHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Bundle extras = getIntent().getExtras();
 
         // TextViews
         tv_Business_Vehicle_Gas_Label = (TextView) findViewById(R.id.tv_Business_Vehicle_Gas_Label);
@@ -90,6 +96,23 @@ public class BusinessStyleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(BusinessStyleActivity.this, MainActivity.class);
+
+                ContentValues values = new ContentValues();
+                values.put("company_vehicles", sw_Business_Vehicle.isChecked());
+                values.put("gas_monthly", edt_Business_Vehicle_Gas.getText().toString());
+                values.put("insurance_monthly", edt_Business_Vehicle_Insurance.getText().toString());
+                values.put("supplies_monthly", edt_Business_Supplies.getText().toString());
+                values.put("wages_monthly", edt_Business_Wages.getText().toString());
+                values.put("advertising_monthly", edt_Business_Advertising.getText().toString());
+                values.put("utilities_monthly", edt_Business_Utilities.getText().toString());
+                values.put("taxes_monthly", edt_Business_Taxes.getText().toString());
+                values.put("income_monthly", edt_Business_Income.getText().toString());
+
+                if (extras != null) {
+                    Integer value = extras.getInt("user_id");
+                    values.put("user", value);
+                }
+                db.insert("user_business", "NullPlaceholder", values);
                 startActivity(intent);
             }
         });

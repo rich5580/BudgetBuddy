@@ -6,9 +6,12 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +40,10 @@ public class StudentStyleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_style);
+
+        UserDatabaseHelper helper = new UserDatabaseHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Bundle extras = getIntent().getExtras();
 
         // Switches
         sw_insurance = (Switch) findViewById(R.id.sw_Student_Insurance);
@@ -171,6 +178,28 @@ public class StudentStyleActivity extends AppCompatActivity {
         btn_finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //Insert code here to add to database.
+                ContentValues values = new ContentValues();
+                values.put("own_car", sw_car.isChecked());
+                values.put("car_insurance", sw_insurance.isChecked());
+                values.put("car_gas", sw_gas.isChecked());
+                values.put("rent_monthly", edt_monthlyRent.getText().toString());
+                values.put("tuition", sw_tuition.isChecked());
+                values.put("weekly_income", edt_weeklyJob.getText().toString());
+                values.put("dependencies", sw_dependencies.isChecked());
+                values.put("children_toggle", sw_dependKid.isChecked());
+                values.put("pets_toggle", sw_dependPet.isChecked());
+                values.put("loans", sw_loan.isChecked());
+                values.put("transit_monthly", edt_monthlyTransit.getText().toString());
+
+                if (extras != null) {
+                    Integer value = extras.getInt("user_id");
+                    Log.i("TESTING SQL", value.toString());
+                    values.put("user", value);
+                }
+                db.insert("user_students", "NullPlaceholder", values);
+
                 Intent intent = new Intent(StudentStyleActivity.this, MainActivity.class);
                 startActivity(intent);
             }
