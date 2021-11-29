@@ -6,4 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".HomeScreenActivity">
 
+    <TextView
+        android:id="@+id/tv_hs_welcome"
+        android:layout_width="194dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="28dp"
+        android:text="Welcome Message to User"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_hs_date"
+        android:layout_width="137dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="52dp"
+        android:text="Date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/pb_budgetLeft"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="132dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
