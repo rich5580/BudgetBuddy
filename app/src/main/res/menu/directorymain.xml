@@ -15,21 +15,35 @@
         app:showAsAction="always"/>
 
     <item android:id="@+id/enterData"
-        android:title="Test"
+        android:title="Enter Data"
         android:orderInCategory="3"
         android:icon="@drawable/ic_baseline_create_24"
         app:showAsAction="always"/>
-
-    <item android:id="@+id/settings"
-        android:title="Enter Data Page"
-        android:orderInCategory="5"
-        android:icon="@drawable/ic_baseline_settings_24"
-        app:showAsAction="always" />
 
     <item android:id="@+id/breakdown"
         android:title="Breakdown Page"
         android:orderInCategory="4"
         android:icon="@drawable/ic_baseline_bar_chart_24"
         app:showAsAction="always"/>
+
+    <item android:id="@+id/settings"
+        android:title="Settings"
+        android:orderInCategory="5"
+        android:icon="@drawable/ic_baseline_settings_24"
+        app:showAsAction="always" >
+        <menu>
+
+            <item android:id="@+id/settingsPage"
+                android:title="Settings">
+            </item>
+
+            <item android:id="@+id/logout"
+                android:title="Log Out">
+            </item>
+        </menu>
+    </item>
+
+
+
 
 </menu>
