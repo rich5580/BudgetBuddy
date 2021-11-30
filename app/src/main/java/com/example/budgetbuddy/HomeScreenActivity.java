@@ -14,22 +14,37 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class HomeScreenActivity extends AppCompatActivity {
 
     TextView welcomeMessage;
+    TextView welcome_date;
+    String retrieved_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            retrieved_email = extras.getString("user_email");
+        }
         UserDatabaseHelper helper = new UserDatabaseHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
-//        welcomeMessage = (TextView) findViewById(R.id.tv_hs_welcome);
-//
-//        Cursor c = db.rawQuery("Select id from users where email= ?", new String[]{});
-//        c.moveToFirst();
+        welcomeMessage = (TextView) findViewById(R.id.tv_hs_welcome);
+        welcome_date = (TextView) findViewById(R.id.tv_hs_date);
+
+
+        Cursor c = db.rawQuery("Select first_name from users where email= ?", new String[]{retrieved_email});
+        c.moveToFirst();
+        welcomeMessage.setText("Welcome " + c.getString(0));
+
+        String date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy", new java.util.Date()));
+        welcome_date.setText("Today's Date is: " + date);
+
 
     }
 

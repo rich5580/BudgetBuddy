@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                         retrieved_email = c.getString(0);
                         retrieved_pw = c.getString(1);
                         if (retrieved_email.equals(mail) && retrieved_pw.equals(pw)) {
+                            intent.putExtra("user_email",mail);
                             startActivity(intent);
                         } else {
                             Toast toast = Toast.makeText(MainActivity.this, "Email and/or password does not exist.", Toast.LENGTH_LONG);
