@@ -4,18 +4,33 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeScreenActivity extends AppCompatActivity {
+
+    TextView welcomeMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
+        UserDatabaseHelper helper = new UserDatabaseHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+//        welcomeMessage = (TextView) findViewById(R.id.tv_hs_welcome);
+//
+//        Cursor c = db.rawQuery("Select id from users where email= ?", new String[]{});
+//        c.moveToFirst();
+
     }
 
     @Override
