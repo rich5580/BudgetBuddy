@@ -10,7 +10,7 @@
         android:id="@+id/tv_hs_welcome"
         android:layout_width="194dp"
         android:layout_height="24dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:text="Welcome Message to User"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,9 +18,9 @@
 
     <TextView
         android:id="@+id/tv_hs_date"
-        android:layout_width="137dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="44dp"
+        android:layout_width="192dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
         android:text="Date"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,8 +31,8 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="132dp"
         android:layout_height="127dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="96dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
