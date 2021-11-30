@@ -32,35 +32,34 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String retrieve_email = "";
-                String retrieve_pw = "";
+                String retrieved_email = "";
+                String retrieved_pw = "";
                 mail = String.valueOf(email.getText());
                 pw = String.valueOf(password.getText());
-                Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
-
-                Cursor c = db.rawQuery("Select email,pswd from users where email= ?", new String[]{mail});
-                c.moveToFirst();
-                if (c.getCount() == 0) {
-                    Toast toast = Toast.makeText(MainActivity.this, "Email and/or password does not exist.", Toast.LENGTH_LONG);
-                    toast.show();
-                } else {
-                    retrieve_email = c.getString(0);
-                    retrieve_pw = c.getString(1);
-                }
-
                 if (mail.equals("") || pw.equals("")) {
-                    Toast toast = Toast.makeText(MainActivity.this, "Please enter email and/or password before you can login.", Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(MainActivity.this, "Enter an email/password to continue.", Toast.LENGTH_LONG);
                     toast.show();
-                }
-                else if (retrieve_email.equals(mail) && retrieve_pw.equals(pw)) {
-                    startActivity(intent);
                 }
                 else {
-                    Toast toast = Toast.makeText(MainActivity.this, "Email and/or password does not exist.", Toast.LENGTH_LONG);
-                    toast.show();
-                }
-                c.close();
+                    Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
 
+                    Cursor c = db.rawQuery("Select email,pswd from users where email= ?", new String[]{mail});
+                    c.moveToFirst();
+                    if (c.getCount() == 0) {
+                        Toast toast = Toast.makeText(MainActivity.this, "Email and/or password does not exist.", Toast.LENGTH_LONG);
+                        toast.show();
+                    } else {
+                        retrieved_email = c.getString(0);
+                        retrieved_pw = c.getString(1);
+                        if (retrieved_email.equals(mail) && retrieved_pw.equals(pw)) {
+                            startActivity(intent);
+                        } else {
+                            Toast toast = Toast.makeText(MainActivity.this, "Email and/or password does not exist.", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                    }
+                    c.close();
+                }
             }
         });
 

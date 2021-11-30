@@ -96,6 +96,13 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
             "income_monthly DOUBLE," +
             "user INT REFERENCES users (id)" + ");";
 
+    private static final String DATA_CREATE="CREATE TABLE user_data (" +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "amount DOUBLE," +
+            "spend_type String," +
+            "affects_category BOOLEAN," +
+            "user INT REFERENCES users (id)" + ");";
+
     public UserDatabaseHelper(Context ctx){
         super(ctx, DATABASE_NAME, null, VERSION_NUM);
     }
@@ -108,6 +115,7 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ADULT_CREATE);
         db.execSQL(ELDERLY_CREATE);
         db.execSQL(BUSINESS_CREATE);
+        db.execSQL(DATA_CREATE);
     }
 
     @Override
@@ -116,6 +124,11 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
                 "Calling onUpgrade, old version= " + i + " new version= "
                         + i1);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS user_students");
+        db.execSQL("DROP TABLE IF EXISTS user_adults");
+        db.execSQL("DROP TABLE IF EXISTS user_elderly");
+        db.execSQL("DROP TABLE IF EXISTS user_business");
+        db.execSQL("DROP TABLE IF EXISTS user_data");
         onCreate(db);
     }
 }
