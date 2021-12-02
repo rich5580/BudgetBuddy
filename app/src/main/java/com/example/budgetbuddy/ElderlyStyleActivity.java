@@ -182,6 +182,7 @@ public class ElderlyStyleActivity extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                helper.DeleteUser();
                 Intent intent = new Intent(ElderlyStyleActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }

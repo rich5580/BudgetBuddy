@@ -1,9 +1,16 @@
 package com.example.budgetbuddy;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class UserDatabaseHelper extends SQLiteOpenHelper {
     protected static final String ACTIVITY_NAME = "UserDatabaseHelper";
@@ -16,6 +23,8 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
     static final String l_name = "last_name";
     static final String password = "pswd";
     static final String TABLE_NAME = "users";
+
+    public static String ACTIVE_USER = "ACTIVE_USER";
 
     // Database creation statement saved as a string
     private static final String DATABASE_CREATE= "create table "
@@ -116,6 +125,17 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(ELDERLY_CREATE);
         db.execSQL(BUSINESS_CREATE);
         db.execSQL(DATA_CREATE);
+    }
+    public void addUser(SQLiteDatabase db, ContentValues values){
+        db.insert(UserDatabaseHelper.DATABASE_NAME, "NullPlaceholder", values);
+        ACTIVE_USER = (String) values.get(UserDatabaseHelper.email);
+    }
+
+    public void DeleteUser(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String queryString = "DELETE FROM " + TABLE_NAME + " WHERE " + email + "= ?";
+        db.rawQuery(queryString, new String[] {ACTIVE_USER});
+
     }
 
     @Override

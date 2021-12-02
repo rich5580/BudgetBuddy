@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class AdultStyleActivity extends AppCompatActivity {
 
     Button btn_cancel, btn_adult_reg;
@@ -104,6 +106,7 @@ public class AdultStyleActivity extends AppCompatActivity {
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                helper.DeleteUser();
                 Intent intent = new Intent(AdultStyleActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }

@@ -169,6 +169,7 @@ public class StudentStyleActivity extends AppCompatActivity {
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                helper.DeleteUser();
                 Intent intent = new Intent(StudentStyleActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }

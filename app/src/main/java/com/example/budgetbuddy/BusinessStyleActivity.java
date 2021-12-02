@@ -87,6 +87,7 @@ public class BusinessStyleActivity extends AppCompatActivity {
         btn_Business_Cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                helper.DeleteUser();
                 Intent intent = new Intent(BusinessStyleActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }

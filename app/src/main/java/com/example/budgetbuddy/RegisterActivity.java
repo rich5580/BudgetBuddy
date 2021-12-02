@@ -70,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
                             if (spin.getSelectedItem().toString().equals("Adult")) {
                                 Intent intent = new Intent(RegisterActivity.this, AdultStyleActivity.class);
                                 values.put("type", "Adult");
-                                db.insert(UserDatabaseHelper.DATABASE_NAME, "NullPlaceholder", values);
+                                helper.addUser(db, values);
                                 Cursor c = db.rawQuery("Select id from users where first_name= ? and last_name= ? and email= ?", new String[]{first,last,mail});
                                 c.moveToFirst();
                                 Log.i("TESTING SQL","ID of user is: " + c.getInt(0));
@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                             else if (spin.getSelectedItem().toString().equals("Student")) {
                                 Intent intent = new Intent(RegisterActivity.this, StudentStyleActivity.class);
                                 values.put("type", "Student");
-                                db.insert(UserDatabaseHelper.DATABASE_NAME, "NullPlaceholder", values);
+                                helper.addUser(db, values);
                                 Cursor c = db.rawQuery("Select id from users where first_name= ? and last_name= ? and email= ?", new String[]{first,last,mail});
                                 c.moveToFirst();
                                 Log.i("TESTING SQL","ID of user is: " + c.getInt(0));
@@ -94,7 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
                             else if (spin.getSelectedItem().toString().equals("Elderly")) {
                                 Intent intent = new Intent(RegisterActivity.this, ElderlyStyleActivity.class);
                                 values.put("type", "Elderly");
-                                db.insert(UserDatabaseHelper.DATABASE_NAME, "NullPlaceholder", values);
+                                helper.addUser(db, values);
                                 Cursor c = db.rawQuery("Select id from users where first_name= ? and last_name= ? and email= ?", new String[]{first,last,mail});
                                 c.moveToFirst();
                                 Log.i("TESTING SQL","ID of user is: " + c.getInt(0));
@@ -106,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
                             else if (spin.getSelectedItem().toString().equals("Business")) {
                                 Intent intent = new Intent(RegisterActivity.this, BusinessStyleActivity.class);
                                 values.put("type", "Business");
-                                db.insert(UserDatabaseHelper.DATABASE_NAME, "NullPlaceholder", values);
+                                helper.addUser(db, values);
                                 Cursor c = db.rawQuery("Select id from users where first_name= ? and last_name= ? and email= ?", new String[]{first,last,mail});
                                 c.moveToFirst();
                                 Log.i("TESTING SQL","ID of user is: " + c.getInt(0));
