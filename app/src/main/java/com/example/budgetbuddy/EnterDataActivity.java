@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 public class EnterDataActivity extends AppCompatActivity {
     int active_user;
+    Boolean data_added = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +33,12 @@ public class EnterDataActivity extends AppCompatActivity {
         UserDatabaseHelper helper = new UserDatabaseHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            active_user = extras.getInt("active_user");
-        }
+        active_user = helper.ACTIVE_USERID;
+
+//        Bundle extras = getIntent().getExtras();
+//        if (extras != null) {
+//            active_user = extras.getInt("active_user");
+//        }
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +50,7 @@ public class EnterDataActivity extends AppCompatActivity {
                 values.put("user", active_user);
 
                 db.insert("user_data","NullPlaceholder", values);
+                data_added = true;
 
                 finish();
 
@@ -71,8 +75,9 @@ public class EnterDataActivity extends AppCompatActivity {
                 toast.show();
                 return true;
             case R.id.home:
-                Intent intent2 = new Intent(EnterDataActivity.this, HomeScreenActivity.class);
-                startActivity(intent2);
+//                Intent intent2 = new Intent(EnterDataActivity.this, HomeScreenActivity.class);
+//                startActivity(intent2);
+                finish();
                 return true;
             case R.id.enterData:
                 Intent intent3 = new Intent(EnterDataActivity.this, EnterDataActivity.class);
@@ -93,7 +98,7 @@ public class EnterDataActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        if (isFinishing()){
+        if (isFinishing() && data_added){
             Toast.makeText(this,"Data added", Toast.LENGTH_LONG).show();
         }
     }

@@ -28,28 +28,29 @@ public class HomeScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            retrieved_email = extras.getString("user_email");
-        }
+//        Bundle extras = getIntent().getExtras();
+//        if (extras != null) {
+//            retrieved_email = extras.getString("user_email");
+//        }
         UserDatabaseHelper helper = new UserDatabaseHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
         welcomeMessage = (TextView) findViewById(R.id.tv_hs_welcome);
         welcome_date = (TextView) findViewById(R.id.tv_hs_date);
 
+        //helper.getUser(db, retrieved_email);
 
-        Cursor c = db.rawQuery("Select first_name from users where email= ?", new String[]{retrieved_email});
-        c.moveToFirst();
-        welcomeMessage.setText("Welcome " + c.getString(0));
+//        Cursor c = db.rawQuery("Select first_name from users where email= ?", new String[]{retrieved_email});
+//        c.moveToFirst();
+        welcomeMessage.setText("Welcome " + helper.ACTIVE_FIRST_NAME);
 
         String date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy", new java.util.Date()));
         welcome_date.setText("Today's Date is: " + date);
 
-        c = db.rawQuery("Select id from users where email= ?", new String[]{retrieved_email});
-        c.moveToFirst();
-        active_userid = c.getInt(0);
-        c.close();
+//        c = db.rawQuery("Select id from users where email= ?", new String[]{retrieved_email});
+//        c.moveToFirst();
+//        active_userid = c.getInt(0);
+//        c.close();
 
 
     }
@@ -66,12 +67,14 @@ public class HomeScreenActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.logout:
                 Intent intent = new Intent(HomeScreenActivity.this, MainActivity.class);
+                intent.putExtra("active_user",active_userid);
                 startActivity(intent);
                 Toast toast = Toast.makeText(HomeScreenActivity.this, "You have logged out.", Toast.LENGTH_LONG);
                 toast.show();
                 return true;
             case R.id.details:
                 Intent intent2 = new Intent(HomeScreenActivity.this, DetailsPageActivity.class);
+                intent2.putExtra("active_user",active_userid);
                 startActivity(intent2);
                 return true;
             case R.id.enterData:
@@ -81,10 +84,12 @@ public class HomeScreenActivity extends AppCompatActivity {
                 return true;
             case R.id.breakdown:
                 Intent intent4 = new Intent(HomeScreenActivity.this, BreakdownPageActivity.class);
+                intent4.putExtra("active_user",active_userid);
                 startActivity(intent4);
                 return true;
             case R.id.settingsPage:
                 Intent intent5 = new Intent(HomeScreenActivity.this, SettingPageActivity.class);
+                intent5.putExtra("active_user",active_userid);
                 startActivity(intent5);
                 return true;
         }

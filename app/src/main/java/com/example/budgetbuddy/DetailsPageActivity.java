@@ -35,8 +35,9 @@ public class DetailsPageActivity extends AppCompatActivity {
                 toast.show();
                 return true;
             case R.id.home:
-                Intent intent2 = new Intent(DetailsPageActivity.this, HomeScreenActivity.class);
-                startActivity(intent2);
+//                Intent intent2 = new Intent(DetailsPageActivity.this, HomeScreenActivity.class);
+//                startActivity(intent2);
+                finish();
                 return true;
             case R.id.enterData:
                 Intent intent3 = new Intent(DetailsPageActivity.this, EnterDataActivity.class);

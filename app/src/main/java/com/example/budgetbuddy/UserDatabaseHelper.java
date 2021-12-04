@@ -25,6 +25,12 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
     static final String TABLE_NAME = "users";
 
     public static String ACTIVE_USER = "ACTIVE_USER";
+    public static int ACTIVE_USERID;
+    public static String ACTIVE_FIRST_NAME = "";
+    public static String ACTIVE_LAST_NAME="";
+    public static String ACTIVE_TYPE = "";
+    public static String ACTIVE_PASSWORD="";
+
 
     // Database creation statement saved as a string
     private static final String DATABASE_CREATE= "create table "
@@ -131,11 +137,44 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         ACTIVE_USER = (String) values.get(UserDatabaseHelper.email);
     }
 
+    public void getUser(SQLiteDatabase db, String email){
+        Cursor data = db.rawQuery("SELECT id FROM users WHERE email=?", new String[]{email});
+        ACTIVE_USER = String.valueOf(data.getInt(0));
+    }
+
     public void DeleteUser(){
         SQLiteDatabase db = this.getWritableDatabase();
         String queryString = "DELETE FROM " + TABLE_NAME + " WHERE " + email + "= ?";
         db.rawQuery(queryString, new String[] {ACTIVE_USER});
 
+    }
+
+    public boolean isValidEmailAndPassword(String email, String password) {
+        // get data from the database
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from users where email=?", new String[] {email});
+
+        boolean hasObject = false;
+        if (cursor.moveToNext()) {
+            String pw = cursor.getString(4);
+            if (pw.equals(password)) {
+                hasObject = true;
+            }
+
+        }
+        //special important line
+        ACTIVE_USER = email;
+        ACTIVE_USERID = cursor.getInt(0);
+        ACTIVE_FIRST_NAME = cursor.getString(2);
+        ACTIVE_LAST_NAME = cursor.getString(3);
+        ACTIVE_PASSWORD = cursor.getString(4);
+
+
+
+        // close both the cursor and the db when done
+        cursor.close();
+        db.close();
+        return hasObject;
     }
 
     @Override
