@@ -21,6 +21,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     TextView welcomeMessage;
     TextView welcome_date;
     String retrieved_email;
+    int active_userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,10 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         String date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy", new java.util.Date()));
         welcome_date.setText("Today's Date is: " + date);
+
+        c = db.rawQuery("Select id from users where email= ?", new String[]{retrieved_email});
+        c.moveToFirst();
+        active_userid = c.getInt(0);
 
 
     }
@@ -70,6 +75,7 @@ public class HomeScreenActivity extends AppCompatActivity {
                 return true;
             case R.id.enterData:
                 Intent intent3 = new Intent(HomeScreenActivity.this, EnterDataActivity.class);
+                intent3.putExtra("active_user",active_userid);
                 startActivity(intent3);
                 return true;
             case R.id.breakdown:

@@ -3,19 +3,55 @@ package com.example.budgetbuddy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class EnterDataActivity extends AppCompatActivity {
+    int active_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_data);
+
+        EditText amount = (EditText) findViewById(R.id.spending_data_amount);
+        EditText type = (EditText) findViewById(R.id.spending_data_type);
+        Switch override = (Switch) findViewById(R.id.override_button);
+        Button add = (Button) findViewById(R.id.add_button);
+
+        UserDatabaseHelper helper = new UserDatabaseHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            active_user = extras.getInt("active_user");
+        }
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ContentValues values = new ContentValues();
+                values.put("amount", Integer.parseInt(amount.getText().toString()));
+                values.put("spend_type", type.getText().toString());
+                values.put("affects_category",!override.isChecked());
+                values.put("user", active_user);
+
+                db.insert("user_data","NullPlaceholder", values);
+
+                finish();
+
+            } });
+
     }
 
     @Override
@@ -52,5 +88,13 @@ public class EnterDataActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (isFinishing()){
+            Toast.makeText(this,"Data added", Toast.LENGTH_LONG).show();
+        }
     }
 }
