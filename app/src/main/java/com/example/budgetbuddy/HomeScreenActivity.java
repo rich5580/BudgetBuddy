@@ -49,6 +49,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         c = db.rawQuery("Select id from users where email= ?", new String[]{retrieved_email});
         c.moveToFirst();
         active_userid = c.getInt(0);
+        c.close();
 
 
     }

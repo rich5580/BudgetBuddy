@@ -1,6 +1,7 @@
 package com.example.budgetbuddy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,14 +9,32 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SettingPageActivity extends AppCompatActivity {
+
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+    private TextView tv_youSure;
+    private Button btn_cancel, btn_save, btn_delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_page);
+
+        btn_delete = (Button) findViewById(R.id.btn_settingsDeleteAcc);
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createDeleteDialog();
+            }
+        });
+
     }
 
     @Override
@@ -53,4 +72,34 @@ public class SettingPageActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    Button btn_yes;
+    public void createDeleteDialog() {
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View deletePopupView = getLayoutInflater().inflate(R.layout.delete_acc_popup, null);
+
+
+        tv_youSure = (TextView) deletePopupView.findViewById(R.id.tv_deleteText);
+        btn_yes = (Button) deletePopupView.findViewById(R.id.btn_deleteYes);
+        btn_cancel = (Button) deletePopupView.findViewById(R.id.btn_deleteCancel);
+
+        dialogBuilder.setView(deletePopupView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        btn_yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+    }
+
 }
