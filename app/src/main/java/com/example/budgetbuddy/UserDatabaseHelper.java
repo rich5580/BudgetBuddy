@@ -115,7 +115,7 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "amount DOUBLE," +
             "spend_type String," +
-            "affects_category BOOLEAN," +
+            "description String," +
             "user INT REFERENCES users (id)" + ");";
 
     public UserDatabaseHelper(Context ctx){

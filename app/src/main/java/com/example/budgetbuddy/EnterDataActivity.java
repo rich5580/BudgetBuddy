@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 public class EnterDataActivity extends AppCompatActivity {
     int active_user;
-    Boolean data_added = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +27,7 @@ public class EnterDataActivity extends AppCompatActivity {
         setContentView(R.layout.activity_enter_data);
 
         EditText amount = (EditText) findViewById(R.id.spending_data_amount);
-//        Spinner spn_type = (Spinner) findViewById(R.id.spn_spendingData);
+        EditText desc = (EditText) findViewById(R.id.edt_spending_info);
         Button add = (Button) findViewById(R.id.add_button);
 
         UserDatabaseHelper helper = new UserDatabaseHelper(this);
@@ -40,51 +39,88 @@ public class EnterDataActivity extends AppCompatActivity {
                     android.R.layout.simple_spinner_item);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spn_student.setAdapter(adapter);
+
+            add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ContentValues values = new ContentValues();
+                    values.put("amount", Integer.parseInt(amount.getText().toString()));
+                    values.put("spend_type", spn_student.getSelectedItem().toString());
+                    values.put("description",desc.getText().toString());
+                    values.put("user", active_user);
+                    db.insert("user_data","NullPlaceholder", values);
+                    Toast.makeText(EnterDataActivity.this,"Data added", Toast.LENGTH_LONG).show();
+                    amount.setText("");
+                    desc.setText("");
+
+                } });
         } else if (helper.ACTIVE_TYPE.equals("Adult")) {
             Spinner spn_adult = (Spinner) findViewById(R.id.spn_spendingData);
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spendingTypeAdult,
                     android.R.layout.simple_spinner_item);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spn_adult.setAdapter(adapter);
+
+            add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ContentValues values = new ContentValues();
+                    values.put("amount", Integer.parseInt(amount.getText().toString()));
+                    values.put("spend_type", spn_adult.getSelectedItem().toString());
+                    values.put("description",desc.getText().toString());
+                    values.put("user", active_user);
+                    db.insert("user_data","NullPlaceholder", values);
+                    Toast.makeText(EnterDataActivity.this,"Data added", Toast.LENGTH_LONG).show();
+                    amount.setText("");
+                    desc.setText("");
+
+
+                } });
         } else if (helper.ACTIVE_TYPE.equals("Elderly")) {
             Spinner spn_elderly = (Spinner) findViewById(R.id.spn_spendingData);
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spendingTypeElderly,
                     android.R.layout.simple_spinner_item);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spn_elderly.setAdapter(adapter);
+
+            add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ContentValues values = new ContentValues();
+                    values.put("amount", Integer.parseInt(amount.getText().toString()));
+                    values.put("spend_type", spn_elderly.getSelectedItem().toString());
+                    values.put("description",desc.getText().toString());
+                    values.put("user", active_user);
+                    db.insert("user_data","NullPlaceholder", values);
+                    Toast.makeText(EnterDataActivity.this,"Data added", Toast.LENGTH_LONG).show();
+                    amount.setText("");
+                    desc.setText("");
+
+
+                } });
         } else if (helper.ACTIVE_TYPE.equals("Business")) {
             Spinner spn_business = (Spinner) findViewById(R.id.spn_spendingData);
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spendingTypeBusiness,
                     android.R.layout.simple_spinner_item);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spn_business.setAdapter(adapter);
+
+            add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ContentValues values = new ContentValues();
+                    values.put("amount", Integer.parseInt(amount.getText().toString()));
+                    values.put("spend_type", spn_business.getSelectedItem().toString());
+                    values.put("description",desc.getText().toString());
+                    values.put("user", active_user);
+                    db.insert("user_data","NullPlaceholder", values);
+                    Toast.makeText(EnterDataActivity.this,"Data added", Toast.LENGTH_LONG).show();
+                    amount.setText("");
+                    desc.setText("");
+                } });
         }
 
-
-
-
         active_user = helper.ACTIVE_USERID;
-
-//        Bundle extras = getIntent().getExtras();
-//        if (extras != null) {
-//            active_user = extras.getInt("active_user");
-//        }
-
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ContentValues values = new ContentValues();
-                values.put("amount", Integer.parseInt(amount.getText().toString()));
-//                values.put("spend_type", type.getText().toString());
-//                values.put("affects_category",!override.isChecked());
-                values.put("user", active_user);
-
-                db.insert("user_data","NullPlaceholder", values);
-                data_added = true;
-
-                finish();
-
-            } });
 
     }
 
@@ -126,13 +162,5 @@ public class EnterDataActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    protected void onDestroy() {
-        super.onDestroy();
-
-        if (isFinishing() && data_added){
-            Toast.makeText(this,"Data added", Toast.LENGTH_LONG).show();
-        }
     }
 }
