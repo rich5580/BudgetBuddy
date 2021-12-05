@@ -350,6 +350,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="487dp"
         android:layout_marginEnd="47dp"
+        android:textColor="@color/black"
         android:ems="10"
         android:text="Estimated monthly spending (dependencies + leisure/other):"
         android:textSize="18sp"

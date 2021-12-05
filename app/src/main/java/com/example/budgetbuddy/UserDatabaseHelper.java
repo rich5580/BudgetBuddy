@@ -164,12 +164,10 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
                 ACTIVE_USERID = cursor.getInt(0);
                 ACTIVE_FIRST_NAME = cursor.getString(2);
                 ACTIVE_LAST_NAME = cursor.getString(3);
+                ACTIVE_TYPE = cursor.getString(5);
             }
 
         }
-
-
-
 
         // close both the cursor and the db when done
         cursor.close();

@@ -22,5 +22,48 @@
         <item>Elderly</item>
         <item>Business</item>
     </string-array>
+
+    <string-array name="spendingTypeStudent">
+        <item>Groceries</item>
+        <item>Rent</item>
+        <item>Leisure</item>
+        <item>Tuition</item>
+        <item>Loans</item>
+        <item>Transit</item>
+        <item>Gas Money</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="spendingTypeAdult">
+        <item>Groceries</item>
+        <item>Mortgage</item>
+        <item>Leisure</item>
+        <item>Health/Life Insurance</item>
+        <item>Dependencies</item>
+        <item>Transit</item>
+        <item>Gas Money</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="spendingTypeElderly">
+        <item>Groceries</item>
+        <item>Mortgage</item>
+        <item>Leisure</item>
+        <item>Health/Life Insurance</item>
+        <item>Dependencies</item>
+        <item>Transit</item>
+        <item>Gas Money</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="spendingTypeBusiness">
+        <item>Supplies/Equipment</item>
+        <item>Wages</item>
+        <item>Advertising</item>
+        <item>Utilities/Services</item>
+        <item>Taxes</item>
+        <item>Company Vehicles</item>
+        <item>Other</item>
+    </string-array>
 </resources>
 

@@ -35,19 +35,22 @@ public class BreakdownPageActivity extends AppCompatActivity {
                 toast.show();
                 return true;
             case R.id.details:
+                finish();
                 Intent intent2 = new Intent(BreakdownPageActivity.this, DetailsPageActivity.class);
                 startActivity(intent2);
                 return true;
             case R.id.enterData:
+                finish();
                 Intent intent3 = new Intent(BreakdownPageActivity.this, EnterDataActivity.class);
                 startActivity(intent3);
                 return true;
             case R.id.home:
-//                Intent intent4 = new Intent(BreakdownPageActivity.this, HomeScreenActivity.class);
-//                startActivity(intent4);
                 finish();
+                Intent intent4 = new Intent(BreakdownPageActivity.this, HomeScreenActivity.class);
+                startActivity(intent4);
                 return true;
             case R.id.settingsPage:
+                finish();
                 Intent intent5 = new Intent(BreakdownPageActivity.this, SettingPageActivity.class);
                 startActivity(intent5);
                 return true;

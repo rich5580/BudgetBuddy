@@ -90,18 +90,22 @@ public class SettingPageActivity extends AppCompatActivity {
                 toast.show();
                 return true;
             case R.id.details:
+                finish();
                 Intent intent2 = new Intent(SettingPageActivity.this, DetailsPageActivity.class);
                 startActivity(intent2);
                 return true;
             case R.id.enterData:
+                finish();
                 Intent intent3 = new Intent(SettingPageActivity.this, EnterDataActivity.class);
                 startActivity(intent3);
                 return true;
             case R.id.breakdown:
+                finish();
                 Intent intent4 = new Intent(SettingPageActivity.this, BreakdownPageActivity.class);
                 startActivity(intent4);
                 return true;
             case R.id.home:
+                finish();
                 Intent intent5 = new Intent(SettingPageActivity.this, HomeScreenActivity.class);
                 startActivity(intent5);
                 return true;

@@ -11,8 +11,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -26,12 +28,40 @@ public class EnterDataActivity extends AppCompatActivity {
         setContentView(R.layout.activity_enter_data);
 
         EditText amount = (EditText) findViewById(R.id.spending_data_amount);
-        EditText type = (EditText) findViewById(R.id.spending_data_type);
-        Switch override = (Switch) findViewById(R.id.override_button);
+//        Spinner spn_type = (Spinner) findViewById(R.id.spn_spendingData);
         Button add = (Button) findViewById(R.id.add_button);
 
         UserDatabaseHelper helper = new UserDatabaseHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
+
+        if (helper.ACTIVE_TYPE.equals("Student")) {
+            Spinner spn_student = (Spinner) findViewById(R.id.spn_spendingData);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spendingTypeStudent,
+                    android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spn_student.setAdapter(adapter);
+        } else if (helper.ACTIVE_TYPE.equals("Adult")) {
+            Spinner spn_adult = (Spinner) findViewById(R.id.spn_spendingData);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spendingTypeAdult,
+                    android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spn_adult.setAdapter(adapter);
+        } else if (helper.ACTIVE_TYPE.equals("Elderly")) {
+            Spinner spn_elderly = (Spinner) findViewById(R.id.spn_spendingData);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spendingTypeElderly,
+                    android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spn_elderly.setAdapter(adapter);
+        } else if (helper.ACTIVE_TYPE.equals("Business")) {
+            Spinner spn_business = (Spinner) findViewById(R.id.spn_spendingData);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spendingTypeBusiness,
+                    android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spn_business.setAdapter(adapter);
+        }
+
+
+
 
         active_user = helper.ACTIVE_USERID;
 
@@ -45,8 +75,8 @@ public class EnterDataActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ContentValues values = new ContentValues();
                 values.put("amount", Integer.parseInt(amount.getText().toString()));
-                values.put("spend_type", type.getText().toString());
-                values.put("affects_category",!override.isChecked());
+//                values.put("spend_type", type.getText().toString());
+//                values.put("affects_category",!override.isChecked());
                 values.put("user", active_user);
 
                 db.insert("user_data","NullPlaceholder", values);
@@ -75,19 +105,22 @@ public class EnterDataActivity extends AppCompatActivity {
                 toast.show();
                 return true;
             case R.id.home:
-//                Intent intent2 = new Intent(EnterDataActivity.this, HomeScreenActivity.class);
-//                startActivity(intent2);
                 finish();
+                Intent intent2 = new Intent(EnterDataActivity.this, HomeScreenActivity.class);
+                startActivity(intent2);
                 return true;
-            case R.id.enterData:
-                Intent intent3 = new Intent(EnterDataActivity.this, EnterDataActivity.class);
+            case R.id.details:
+                finish();
+                Intent intent3 = new Intent(EnterDataActivity.this, DetailsPageActivity.class);
                 startActivity(intent3);
                 return true;
             case R.id.breakdown:
+                finish();
                 Intent intent4 = new Intent(EnterDataActivity.this, BreakdownPageActivity.class);
                 startActivity(intent4);
                 return true;
             case R.id.settingsPage:
+                finish();
                 Intent intent5 = new Intent(EnterDataActivity.this, SettingPageActivity.class);
                 startActivity(intent5);
                 return true;

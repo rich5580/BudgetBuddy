@@ -183,7 +183,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="340dp"
-        android:text="Income:"
+        android:text="Business Income:"
         android:textSize="30sp" />
 
     <EditText

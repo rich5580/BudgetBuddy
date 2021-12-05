@@ -35,19 +35,22 @@ public class DetailsPageActivity extends AppCompatActivity {
                 toast.show();
                 return true;
             case R.id.home:
-//                Intent intent2 = new Intent(DetailsPageActivity.this, HomeScreenActivity.class);
-//                startActivity(intent2);
                 finish();
+                Intent intent2 = new Intent(DetailsPageActivity.this, HomeScreenActivity.class);
+                startActivity(intent2);
                 return true;
             case R.id.enterData:
+                finish();
                 Intent intent3 = new Intent(DetailsPageActivity.this, EnterDataActivity.class);
                 startActivity(intent3);
                 return true;
             case R.id.breakdown:
+                finish();
                 Intent intent4 = new Intent(DetailsPageActivity.this, BreakdownPageActivity.class);
                 startActivity(intent4);
                 return true;
             case R.id.settingsPage:
+                finish();
                 Intent intent5 = new Intent(DetailsPageActivity.this, SettingPageActivity.class);
                 startActivity(intent5);
                 return true;

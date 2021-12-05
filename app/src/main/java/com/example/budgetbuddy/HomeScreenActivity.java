@@ -73,21 +73,25 @@ public class HomeScreenActivity extends AppCompatActivity {
                 toast.show();
                 return true;
             case R.id.details:
+                finish();
                 Intent intent2 = new Intent(HomeScreenActivity.this, DetailsPageActivity.class);
                 intent2.putExtra("active_user",active_userid);
                 startActivity(intent2);
                 return true;
             case R.id.enterData:
+                finish();
                 Intent intent3 = new Intent(HomeScreenActivity.this, EnterDataActivity.class);
                 intent3.putExtra("active_user",active_userid);
                 startActivity(intent3);
                 return true;
             case R.id.breakdown:
+                finish();
                 Intent intent4 = new Intent(HomeScreenActivity.this, BreakdownPageActivity.class);
                 intent4.putExtra("active_user",active_userid);
                 startActivity(intent4);
                 return true;
             case R.id.settingsPage:
+                finish();
                 Intent intent5 = new Intent(HomeScreenActivity.this, SettingPageActivity.class);
                 intent5.putExtra("active_user",active_userid);
                 startActivity(intent5);
