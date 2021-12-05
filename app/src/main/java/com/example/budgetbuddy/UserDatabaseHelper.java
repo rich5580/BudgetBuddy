@@ -159,15 +159,15 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
             String pw = cursor.getString(4);
             if (pw.equals(password)) {
                 hasObject = true;
+                //special important line
+                ACTIVE_USER = email;
+                ACTIVE_USERID = cursor.getInt(0);
+                ACTIVE_FIRST_NAME = cursor.getString(2);
+                ACTIVE_LAST_NAME = cursor.getString(3);
             }
 
         }
-        //special important line
-        ACTIVE_USER = email;
-        ACTIVE_USERID = cursor.getInt(0);
-        ACTIVE_FIRST_NAME = cursor.getString(2);
-        ACTIVE_LAST_NAME = cursor.getString(3);
-        ACTIVE_PASSWORD = cursor.getString(4);
+
 
 
 
@@ -189,6 +189,42 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS user_business");
         db.execSQL("DROP TABLE IF EXISTS user_data");
         onCreate(db);
+    }
+
+    // Updates name phone and password in the database user table where user email equals active user
+    public boolean updateSettings(String fName, String lName, String pw) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(f_name, fName);
+        contentValues.put(l_name, lName);
+        contentValues.put(password, pw);
+
+        db.update(DATABASE_NAME, contentValues, "email = ?", new String[] {ACTIVE_USER});
+        ACTIVE_FIRST_NAME = fName;
+        ACTIVE_LAST_NAME = lName;
+        ACTIVE_PASSWORD = pw;
+
+        return true;
+
+    }
+
+    // Deletes the active user's account from the database user table
+    public boolean deleteOne(){
+        // find customerModel in the database. If it found, delete it and return true.
+        // if it is not found, return false
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String queryString = "DELETE FROM " + DATABASE_NAME + " WHERE " + email + "= ?";
+        Cursor cursor = db.rawQuery(queryString, new String[] {ACTIVE_USER});
+
+        if (cursor.moveToFirst()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
 

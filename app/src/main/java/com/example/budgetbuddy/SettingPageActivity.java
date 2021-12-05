@@ -17,15 +17,51 @@ import android.widget.Toast;
 
 public class SettingPageActivity extends AppCompatActivity {
 
+    UserDatabaseHelper db;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
     private TextView tv_youSure;
+    private EditText edt_fName, edt_lName, edt_pw;
     private Button btn_cancel, btn_save, btn_delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_page);
+
+        db = new UserDatabaseHelper(this);
+        String fName = db.ACTIVE_FIRST_NAME;
+        String lName = db.ACTIVE_LAST_NAME;
+        String pw = db.ACTIVE_PASSWORD;
+
+        edt_fName = (EditText) findViewById(R.id.edt_settingsFName);
+        edt_lName = (EditText) findViewById(R.id.edt_settingsLName);
+        edt_pw = (EditText) findViewById(R.id.edt_settingsPassword);
+
+        edt_fName.setHint("" + fName);
+        edt_lName.setHint("" + lName);
+        edt_pw.setHint("" + pw);
+
+        btn_save = (Button) findViewById(R.id.btn_settingsSaveInfo);
+        btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // if the user decides to only edit one text edit then the system will know to keep the other information the same instead of changing it to a blank space
+                if (edt_fName.getText().toString().isEmpty()) {
+                    edt_fName.setText(edt_fName.getHint());
+                }
+                if (edt_lName.getText().toString().isEmpty()) {
+                    edt_lName.setText(edt_lName.getHint());
+                }
+                if (edt_pw.getText().toString().isEmpty()) {
+                    edt_pw.setText(edt_pw.getHint());
+                }
+                // If the user decides to change any of their information, then this calls the database and updates the database to the new information that the user entered
+                db.updateSettings(edt_fName.getText().toString(), edt_lName.getText().toString(), edt_pw.getText().toString());
+                finish();
+                startActivity(getIntent());
+            }
+        });
 
         btn_delete = (Button) findViewById(R.id.btn_settingsDeleteAcc);
         btn_delete.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +126,9 @@ public class SettingPageActivity extends AppCompatActivity {
         btn_yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                db.deleteOne();
+                Intent intent = new Intent(SettingPageActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

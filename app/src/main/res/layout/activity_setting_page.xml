@@ -9,46 +9,46 @@
     tools:layout_editor_absoluteY="-1dp">
 
     <EditText
-        android:id="@+id/edt_settingsPassword2"
+        android:id="@+id/edt_settingsLName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="136dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
+        android:text=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_settingsPassword2"
+        android:id="@+id/tv_settingsLName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="116dp"
-        android:text="Password"
+        android:text="Last Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edt_settingsEmail"
+        android:id="@+id/edt_settingsFName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="48dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="Name"
+        android:text=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_settingsEmail"
+        android:id="@+id/tv_settingsFName"
         android:layout_width="105dp"
         android:layout_height="22dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
-        android:text="Email"
+        android:text="First Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,7 +75,7 @@
         app:layout_constraintVertical_bias="0.896" />
 
     <EditText
-        android:id="@+id/edt_settingsRePassword"
+        android:id="@+id/edt_settingsPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -87,12 +87,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_settingsRePassword"
+        android:id="@+id/tv_settingsPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="204dp"
-        android:text="Re-Password"
+        android:text="Password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
