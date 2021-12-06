@@ -20,6 +20,10 @@
         <entry key="app/src/main/res/layout/activity_details_page.xml" value="0.38125" />
         <entry key="app/src/main/res/layout/activity_enter_data.xml" value="0.38125" />
         <entry key="app/src/main/res/layout/activity_home_screen.xml" value="0.353125" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.26266464032421477" />
+        <entry key="app/src/main/res/layout/fragment_user_data.xml" value="0.21603260869565216" />
+        <entry key="app/src/main/res/layout/fragment_userdata_needs.xml" value="0.26266464032421477" />
+        <entry key="app/src/main/res/layout/fragment_userdata_wants.xml" value="0.26266464032421477" />
       </map>
     </option>
   </component>

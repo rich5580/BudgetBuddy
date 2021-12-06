@@ -2,6 +2,9 @@ package com.example.budgetbuddy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -10,6 +13,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,31 +33,45 @@ public class HomeScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-//        Bundle extras = getIntent().getExtras();
-//        if (extras != null) {
-//            retrieved_email = extras.getString("user_email");
-//        }
         UserDatabaseHelper helper = new UserDatabaseHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
         welcomeMessage = (TextView) findViewById(R.id.tv_hs_welcome);
         welcome_date = (TextView) findViewById(R.id.tv_hs_date);
 
-        //helper.getUser(db, retrieved_email);
-
-//        Cursor c = db.rawQuery("Select first_name from users where email= ?", new String[]{retrieved_email});
-//        c.moveToFirst();
         welcomeMessage.setText("Welcome " + helper.ACTIVE_FIRST_NAME);
 
         String date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy", new java.util.Date()));
         welcome_date.setText("Today's Date is: " + date);
 
-//        c = db.rawQuery("Select id from users where email= ?", new String[]{retrieved_email});
-//        c.moveToFirst();
-//        active_userid = c.getInt(0);
-//        c.close();
 
+        //Add fragments. Make changes to the fragments @ userdata_needs, userdata_wants.
+        Fragment userdata_wants = new userdata_wants();
+        Fragment userdata_needs = new userdata_needs();
 
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.flFragment, userdata_needs);
+        ft.commit();
+
+        Button needs_btn = (Button) findViewById(R.id.btn_needs);
+        Button wants_btn = (Button) findViewById(R.id.btn_wants);
+
+        needs_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.flFragment, userdata_needs);
+                ft.commit();
+            }
+        });
+        wants_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.flFragment, userdata_wants);
+                ft.commit();
+            }
+        });
     }
 
     @Override

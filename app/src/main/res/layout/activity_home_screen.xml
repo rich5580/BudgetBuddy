@@ -33,6 +33,39 @@
         android:layout_height="127dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="96dp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_wants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wants"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_needs"
+        app:layout_constraintTop_toBottomOf="@+id/pb_budgetLeft" />
+
+    <Button
+        android:id="@+id/btn_needs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Needs"
+        app:layout_constraintEnd_toStartOf="@+id/btn_wants"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pb_budgetLeft" />
+
+    <FrameLayout
+        android:id="@+id/flFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_needs" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
