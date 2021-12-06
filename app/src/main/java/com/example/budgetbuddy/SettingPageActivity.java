@@ -22,7 +22,7 @@ public class SettingPageActivity extends AppCompatActivity {
     private AlertDialog dialog;
     private TextView tv_youSure;
     private EditText edt_fName, edt_lName, edt_pw;
-    private Button btn_cancel, btn_save, btn_delete;
+    private Button btn_cancel, btn_save, btn_delete, btn_yes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +113,6 @@ public class SettingPageActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    Button btn_yes;
     public void createDeleteDialog() {
         dialogBuilder = new AlertDialog.Builder(this);
         final View deletePopupView = getLayoutInflater().inflate(R.layout.delete_acc_popup, null);

@@ -12,6 +12,9 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserDatabaseHelper extends SQLiteOpenHelper {
     protected static final String ACTIVITY_NAME = "UserDatabaseHelper";
 
@@ -208,10 +211,7 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    // Deletes the active user's account from the database user table
     public boolean deleteOne(){
-        // find customerModel in the database. If it found, delete it and return true.
-        // if it is not found, return false
 
         SQLiteDatabase db = this.getWritableDatabase();
         String queryString = "DELETE FROM " + DATABASE_NAME + " WHERE " + email + "= ?";
@@ -223,6 +223,53 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         else{
             return false;
         }
+    }
+
+    public boolean deleteData(DataModel model) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String queryString = "DELETE FROM user_data WHERE id= ?";
+        Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(model.getId())});
+
+        if (cursor.moveToFirst()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+    // Gets all contacts with the ID matching the active user, searching the database customer table which contains all contacts
+    public List<DataModel> getAllInfo() {
+        List<DataModel> returnList = new ArrayList<>();
+
+        // get data from the database
+        SQLiteDatabase db = this.getReadableDatabase();
+        String queryString = "SELECT * FROM " + "user_data" + " WHERE " + "user" + " = ?";
+
+
+
+        Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+        if (cursor.moveToFirst()) {
+            // loop through the cursor (result set) and create new customer objects. Put them into the return list.
+            do {
+                int id = cursor.getInt(0);
+                Double amount = cursor.getDouble(1);
+                String spend_type = cursor.getString(2);
+                String description = cursor.getString(3);
+                DataModel newData = new DataModel(id, amount, spend_type, description);
+                returnList.add(newData);
+
+            } while (cursor.moveToNext());
+        }
+        else {
+            // failure. do not add anything to the list
+        }
+
+        // close both the cursor and the db when done
+        cursor.close();
+        db.close();
+        return returnList;
     }
 }
 
