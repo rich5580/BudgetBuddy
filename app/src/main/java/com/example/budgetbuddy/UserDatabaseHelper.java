@@ -12,6 +12,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -238,14 +239,32 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void UserSpending(){
+    public ArrayList<Double> UserSpending(){
         //Needs to calculate total user spending for yearly, monthly, weekly, and daily
         //Needs to Sum recurring spending for all categories
         SQLiteDatabase db = this.getReadableDatabase();
-        String queryString = "SELECT * FROM user_data WHERE user = ?";
+        String queryString;
+        ArrayList<Double> spending = new ArrayList<Double>();
 
-        Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+        if (ACTIVE_TYPE == "Student"){
+            queryString = "SELECT rent_monthly,transit_monthly FROM user_students WHERE user = ?";
+            Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+            cursor.moveToFirst();
+            while (cursor.moveToNext()){
+                spending.add(cursor.getDouble(0));
+            }
+        } else if (ACTIVE_TYPE == "Adult"){
+            queryString = "SELECT car_insurance,gas_monthly,property_ins_yearly,mortgage_monthly,rent_monthly,health_life_monthly,dependency_monthly,debt_monthly FROM user_adults WHERE user = ?";
+            Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+        } else if (ACTIVE_TYPE == "Elderly"){
+            queryString = "SELECT rentmortgage_monthly,healthlifeinsurance_monthly,transit_monthly,car_insurance,car_gas,groceries_monthly,otherexpense_monthly FROM user_elderly WHERE user = ?";
+            Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+        } else {
+            queryString = "SELECT gas_monthly,insurance_monthly,supplies_monthly,wages_monthly,advertising_monthly,utilities_monthly,taxes_monthly FROM user_business WHERE user = ?";
+            Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+        }
 
+        return spending;
 
     }
 
