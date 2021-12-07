@@ -246,22 +246,47 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         String queryString;
         ArrayList<Double> spending = new ArrayList<Double>();
 
-        if (ACTIVE_TYPE == "Student"){
+        if (ACTIVE_TYPE.equals("Student")){
             queryString = "SELECT rent_monthly,transit_monthly FROM user_students WHERE user = ?";
             Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
             cursor.moveToFirst();
-            while (cursor.moveToNext()){
-                spending.add(cursor.getDouble(0));
-            }
+            spending.add(cursor.getDouble(0));
+            spending.add(cursor.getDouble(1));
+
         } else if (ACTIVE_TYPE == "Adult"){
             queryString = "SELECT car_insurance,gas_monthly,property_ins_yearly,mortgage_monthly,rent_monthly,health_life_monthly,dependency_monthly,debt_monthly FROM user_adults WHERE user = ?";
             Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+            cursor.moveToFirst();
+            spending.add(cursor.getDouble(0));
+            spending.add(cursor.getDouble(1));
+            spending.add(cursor.getDouble(2));
+            spending.add(cursor.getDouble(3));
+            spending.add(cursor.getDouble(4));
+            spending.add(cursor.getDouble(5));
+            spending.add(cursor.getDouble(6));
+            spending.add(cursor.getDouble(7));
         } else if (ACTIVE_TYPE == "Elderly"){
             queryString = "SELECT rentmortgage_monthly,healthlifeinsurance_monthly,transit_monthly,car_insurance,car_gas,groceries_monthly,otherexpense_monthly FROM user_elderly WHERE user = ?";
             Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+            cursor.moveToFirst();
+            spending.add(cursor.getDouble(0));
+            spending.add(cursor.getDouble(1));
+            spending.add(cursor.getDouble(2));
+            spending.add(cursor.getDouble(3));
+            spending.add(cursor.getDouble(4));
+            spending.add(cursor.getDouble(5));
+            spending.add(cursor.getDouble(6));
         } else {
             queryString = "SELECT gas_monthly,insurance_monthly,supplies_monthly,wages_monthly,advertising_monthly,utilities_monthly,taxes_monthly FROM user_business WHERE user = ?";
             Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+            cursor.moveToFirst();
+            spending.add(cursor.getDouble(0));
+            spending.add(cursor.getDouble(1));
+            spending.add(cursor.getDouble(2));
+            spending.add(cursor.getDouble(3));
+            spending.add(cursor.getDouble(4));
+            spending.add(cursor.getDouble(5));
+            spending.add(cursor.getDouble(6));
         }
 
         return spending;
