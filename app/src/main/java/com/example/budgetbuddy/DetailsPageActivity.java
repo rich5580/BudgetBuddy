@@ -45,11 +45,9 @@ public class DetailsPageActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                createDeleteDialog();
+                DataModel clickedData = (DataModel) adapterView.getItemAtPosition(i);
+                createDeleteDialog(clickedData);
 
-//                DataModel clickedData = (DataModel) adapterView.getItemAtPosition(i);
-//                helper.deleteData(clickedData);
-//                ShowDetailsOnListView(helper);
             }
         });
     }
@@ -101,20 +99,25 @@ public class DetailsPageActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void createDeleteDialog() {
+    public void createDeleteDialog(DataModel model) {
         dialogBuilder = new AlertDialog.Builder(this);
         final View dataPopupView = getLayoutInflater().inflate(R.layout.extra_data_popup, null);
 
-        tv_pAmount = (TextView) dataPopupView.findViewById(R.id.tv_popupAmount);
-        tv_pAmount2 = (TextView) dataPopupView.findViewById(R.id.tv_popupAmount2);
         tv_pType = (TextView) dataPopupView.findViewById(R.id.tv_popupType);
         tv_pType2 = (TextView) dataPopupView.findViewById(R.id.tv_popupType2);
+        tv_pAmount = (TextView) dataPopupView.findViewById(R.id.tv_popupAmount);
+        tv_pAmount2 = (TextView) dataPopupView.findViewById(R.id.tv_popupAmount2);
         tv_pDesc = (TextView) dataPopupView.findViewById(R.id.tv_popupDescription);
         tv_pDesc2 = (TextView) dataPopupView.findViewById(R.id.tv_popupDescription2);
         tv_pOccur = (TextView) dataPopupView.findViewById(R.id.tv_popupReOccurring);
         tv_pOccur2 = (TextView) dataPopupView.findViewById(R.id.tv_popupReOccurring2);
         btn_delete = (Button) dataPopupView.findViewById(R.id.btn_popupDelete);
         btn_cancel = (Button) dataPopupView.findViewById(R.id.btn_popupClose);
+
+        tv_pType2.setText(model.getSpend_type());
+        tv_pAmount2.setText(String.valueOf(model.getAmount()));
+        tv_pDesc2.setText(model.getDescription());
+
 
         dialogBuilder.setView(dataPopupView);
         dialog = dialogBuilder.create();
@@ -123,9 +126,9 @@ public class DetailsPageActivity extends AppCompatActivity {
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                helper.deleteOne();
-                Intent intent = new Intent(DetailsPageActivity.this, MainActivity.class);
-                startActivity(intent);
+                helper.deleteData(model);
+                dialog.dismiss();
+                ShowDetailsOnListView(helper);
             }
         });
 

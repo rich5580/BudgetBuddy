@@ -24,5 +24,14 @@ public class DataModel {
     public int getId() {
         return id;
     }
+    public double getAmount() {
+        return amount;
+    }
+    public String getSpend_type() {
+        return spend_type;
+    }
+    public String getDescription() {
+        return description;
+    }
 
 }

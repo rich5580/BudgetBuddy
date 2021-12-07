@@ -43,15 +43,20 @@ public class EnterDataActivity extends AppCompatActivity {
             add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ContentValues values = new ContentValues();
-                    values.put("amount", Integer.parseInt(amount.getText().toString()));
-                    values.put("spend_type", spn_student.getSelectedItem().toString());
-                    values.put("description",desc.getText().toString());
-                    values.put("user", active_user);
-                    db.insert("user_data","NullPlaceholder", values);
-                    Toast.makeText(EnterDataActivity.this,"Data added", Toast.LENGTH_LONG).show();
-                    amount.setText("");
-                    desc.setText("");
+                    if (amount.getText().toString().equals("")) {
+                        Toast.makeText(EnterDataActivity.this, "Please enter a value.", Toast.LENGTH_LONG).show();
+                    } else {
+                        ContentValues values = new ContentValues();
+                        values.put("amount", Integer.parseInt(amount.getText().toString()));
+                        values.put("spend_type", spn_student.getSelectedItem().toString());
+                        values.put("description",desc.getText().toString());
+                        values.put("user", active_user);
+                        db.insert("user_data","NullPlaceholder", values);
+                        Toast.makeText(EnterDataActivity.this,"Data added", Toast.LENGTH_LONG).show();
+                        amount.setText("");
+                        desc.setText("");
+                    }
+
 
                 } });
         } else if (helper.ACTIVE_TYPE.equals("Adult")) {
@@ -64,16 +69,19 @@ public class EnterDataActivity extends AppCompatActivity {
             add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ContentValues values = new ContentValues();
-                    values.put("amount", Integer.parseInt(amount.getText().toString()));
-                    values.put("spend_type", spn_adult.getSelectedItem().toString());
-                    values.put("description",desc.getText().toString());
-                    values.put("user", active_user);
-                    db.insert("user_data","NullPlaceholder", values);
-                    Toast.makeText(EnterDataActivity.this,"Data added", Toast.LENGTH_LONG).show();
-                    amount.setText("");
-                    desc.setText("");
-
+                    if (amount.getText().toString().equals("")) {
+                        Toast.makeText(EnterDataActivity.this, "Please enter a value.", Toast.LENGTH_LONG).show();
+                    } else {
+                        ContentValues values = new ContentValues();
+                        values.put("amount", Integer.parseInt(amount.getText().toString()));
+                        values.put("spend_type", spn_adult.getSelectedItem().toString());
+                        values.put("description",desc.getText().toString());
+                        values.put("user", active_user);
+                        db.insert("user_data","NullPlaceholder", values);
+                        Toast.makeText(EnterDataActivity.this,"Data added", Toast.LENGTH_LONG).show();
+                        amount.setText("");
+                        desc.setText("");
+                    }
 
                 } });
         } else if (helper.ACTIVE_TYPE.equals("Elderly")) {
@@ -86,16 +94,19 @@ public class EnterDataActivity extends AppCompatActivity {
             add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ContentValues values = new ContentValues();
-                    values.put("amount", Integer.parseInt(amount.getText().toString()));
-                    values.put("spend_type", spn_elderly.getSelectedItem().toString());
-                    values.put("description",desc.getText().toString());
-                    values.put("user", active_user);
-                    db.insert("user_data","NullPlaceholder", values);
-                    Toast.makeText(EnterDataActivity.this,"Data added", Toast.LENGTH_LONG).show();
-                    amount.setText("");
-                    desc.setText("");
-
+                    if (amount.getText().toString().equals("")) {
+                        Toast.makeText(EnterDataActivity.this, "Please enter a value.", Toast.LENGTH_LONG).show();
+                    } else {
+                        ContentValues values = new ContentValues();
+                        values.put("amount", Integer.parseInt(amount.getText().toString()));
+                        values.put("spend_type", spn_elderly.getSelectedItem().toString());
+                        values.put("description",desc.getText().toString());
+                        values.put("user", active_user);
+                        db.insert("user_data","NullPlaceholder", values);
+                        Toast.makeText(EnterDataActivity.this,"Data added", Toast.LENGTH_LONG).show();
+                        amount.setText("");
+                        desc.setText("");
+                    }
 
                 } });
         } else if (helper.ACTIVE_TYPE.equals("Business")) {
@@ -108,15 +119,20 @@ public class EnterDataActivity extends AppCompatActivity {
             add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ContentValues values = new ContentValues();
-                    values.put("amount", Integer.parseInt(amount.getText().toString()));
-                    values.put("spend_type", spn_business.getSelectedItem().toString());
-                    values.put("description",desc.getText().toString());
-                    values.put("user", active_user);
-                    db.insert("user_data","NullPlaceholder", values);
-                    Toast.makeText(EnterDataActivity.this,"Data added", Toast.LENGTH_LONG).show();
-                    amount.setText("");
-                    desc.setText("");
+                    if (amount.getText().toString().equals("")) {
+                        Toast.makeText(EnterDataActivity.this, "Please enter a value.", Toast.LENGTH_LONG).show();
+                    } else {
+                        ContentValues values = new ContentValues();
+                        values.put("amount", Integer.parseInt(amount.getText().toString()));
+                        values.put("spend_type", spn_business.getSelectedItem().toString());
+                        values.put("description",desc.getText().toString());
+                        values.put("user", active_user);
+                        db.insert("user_data","NullPlaceholder", values);
+                        Toast.makeText(EnterDataActivity.this,"Data added", Toast.LENGTH_LONG).show();
+                        amount.setText("");
+                        desc.setText("");
+                    }
+
                 } });
         }
 
