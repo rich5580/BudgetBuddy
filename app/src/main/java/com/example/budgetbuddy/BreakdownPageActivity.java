@@ -16,6 +16,7 @@ public class BreakdownPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_breakdown_page);
+        //Budget breakdown page NEEDS listview displaying monthly spending for each category as an item
     }
 
     @Override

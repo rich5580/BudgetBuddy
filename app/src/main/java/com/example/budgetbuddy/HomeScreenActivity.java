@@ -43,8 +43,9 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         String date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy", new java.util.Date()));
         welcome_date.setText("Today's Date is: " + date);
-
-
+        //Including display of current user Income and a field to change it could be cool but not necessary
+        //Fragment wants, needs to become spending, displaying users yearly, monthly, weekly, and daily spending (UserSpending Function)
+        //Fragment needs, needs to become income minus spending aka budget showing yearly, monthly, weekly, and daily budget (TotalBudget)
         //Add fragments. Make changes to the fragments @ userdata_needs, userdata_wants.
         Fragment userdata_wants = new userdata_wants();
         Fragment userdata_needs = new userdata_needs();

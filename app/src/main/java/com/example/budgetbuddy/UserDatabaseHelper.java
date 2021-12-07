@@ -238,6 +238,36 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void UserSpending(){
+        //Needs to calculate total user spending for yearly, monthly, weekly, and daily
+        //Needs to Sum recurring spending for all categories
+        SQLiteDatabase db = this.getReadableDatabase();
+        String queryString = "SELECT * FROM user_data WHERE user = ?";
+
+        Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+
+
+    }
+
+    public List<DataModel> BudgetBreakdown(){
+        //Needs to calculate monthly spending for each individual category
+        //Needs to display spending for each category as individual listview items
+        List<DataModel> returnList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String queryString = "SELECT * FROM user_data WHERE user = ?";
+
+        Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+        return returnList;
+    }
+
+    public void TotalBudget(){
+        //Needs to compate UserSpending to income at yearly, monthly, weekly, and daily. Income - total spending
+        SQLiteDatabase db = this.getReadableDatabase();
+        String queryString = "SELECT * FROM user_data WHERE user = ?";
+
+        Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+    }
+
 
     // Gets all contacts with the ID matching the active user, searching the database customer table which contains all contacts
     public List<DataModel> getAllInfo() {

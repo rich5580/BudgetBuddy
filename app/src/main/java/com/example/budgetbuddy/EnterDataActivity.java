@@ -28,6 +28,10 @@ public class EnterDataActivity extends AppCompatActivity {
 
         EditText amount = (EditText) findViewById(R.id.spending_data_amount);
         EditText desc = (EditText) findViewById(R.id.edt_spending_info);
+        //NEEDED Reccuring switch, if added spending is not reccuring add to details list as normal
+        //NEEDED If added spending is reccuring update budget breakdown page (either add if
+        //brand new category, or change spending number of existing category)
+        Switch recc = (Switch) findViewById(R.id.sw_reccuring);
         Button add = (Button) findViewById(R.id.add_button);
 
         UserDatabaseHelper helper = new UserDatabaseHelper(this);
