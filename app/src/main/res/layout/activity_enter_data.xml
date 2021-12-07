@@ -106,16 +106,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.277" />
 
-    <Switch
-        android:id="@+id/sw_reccuring"
-        android:layout_width="161dp"
-        android:layout_height="40dp"
-        android:text="Reccuring?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

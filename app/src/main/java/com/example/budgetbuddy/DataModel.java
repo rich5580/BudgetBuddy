@@ -11,6 +11,10 @@ public class DataModel {
         this.spend_type = spend_type;
         this.description = description;
     }
+    public DataModel(double amount, String spend_type){
+        this.amount = amount;
+        this.spend_type = spend_type;
+    }
 
     public DataModel() {
     }

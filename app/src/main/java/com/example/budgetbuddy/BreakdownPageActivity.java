@@ -10,13 +10,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class BreakdownPageActivity extends AppCompatActivity {
-
+    ListView lv_breakdown;
+    ArrayAdapter breakdownAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,21 +28,19 @@ public class BreakdownPageActivity extends AppCompatActivity {
 
         UserDatabaseHelper helper = new UserDatabaseHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
-        TextView monthly_total = (TextView) findViewById(R.id.monthly_total);
 
-        ArrayList<Double> spending = helper.UserSpending();
-//        Log.i("Spending_Size", String.valueOf(spending.size()));
-        double total_spending = 0;
-
-        for(int i=0;i<spending.size();i++){
-            total_spending += spending.get(i);
-        }
-        monthly_total.setText("$" + String.valueOf(total_spending));
+        lv_breakdown = (ListView) findViewById(R.id.lv_breakdown);
+        //TextView monthly_total = (TextView) findViewById(R.id.monthly_total);
+        showBreakdown(helper);
 
 
 
     }
 
+    private void showBreakdown(UserDatabaseHelper helper){
+        breakdownAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, helper.BudgetBreakdown());
+        lv_breakdown.setAdapter(breakdownAdapter);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
