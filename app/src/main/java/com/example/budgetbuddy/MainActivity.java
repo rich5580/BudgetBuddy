@@ -1,21 +1,29 @@
 package com.example.budgetbuddy;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button login, register;
+    Button login, register, btn_close;
     EditText email, password;
     public String mail, pw;
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,5 +89,41 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.about_app, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.info:
+                createInfoDialog();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void createInfoDialog() {
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View infoPopupView = getLayoutInflater().inflate(R.layout.about_popup, null);
+
+        btn_close = (Button) infoPopupView.findViewById(R.id.btn_infoClose);
+
+        dialogBuilder.setView(infoPopupView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        btn_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
     }
 }

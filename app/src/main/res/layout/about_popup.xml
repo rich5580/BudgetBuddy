@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_infoAuthor"
+        android:layout_width="100dp"
+        android:layout_height="26dp"
+        android:text="Author(s):"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <TextView
+        android:id="@+id/tv_infoVersion"
+        android:layout_width="100dp"
+        android:layout_height="26dp"
+        android:text="Version:"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_infoAuthor"
+        app:layout_constraintVertical_bias="0.017" />
+
+    <TextView
+        android:id="@+id/tv_infoVNumber"
+        android:layout_width="270dp"
+        android:layout_height="26dp"
+        android:text="1.0"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toEndOf="@+id/tv_infoVersion"
+        app:layout_constraintTop_toBottomOf="@+id/tv_infoNames"
+        app:layout_constraintVertical_bias="0.018" />
+
+    <TextView
+        android:id="@+id/tv_infoInstructions"
+        android:layout_width="100dp"
+        android:layout_height="26dp"
+        android:text="Instructions:"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_infoVersion"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <TextView
+        android:id="@+id/tv_infoNames"
+        android:layout_width="270dp"
+        android:layout_height="26dp"
+        android:text="Alan, Connor, Harlan, Sam, Warssay"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toEndOf="@+id/tv_infoAuthor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <TextView
+        android:id="@+id/tv_infoSteps"
+        android:layout_width="213dp"
+        android:layout_height="235dp"
+        android:text="1. Register if you do not have an account yet\n2. When registering make sure to fill out the questionnaire\n3. After you finish registration, you can login \n4. There will be 5 icons at the top to help you navigate (Left to Right):\n
+    a. Home Page\n
+    b. Details Page\n
+    c. Enter Data Page\n
+    d. Breakdown Page\n
+    e. Settings Page/Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toEndOf="@+id/tv_infoInstructions"
+        app:layout_constraintTop_toBottomOf="@+id/tv_infoVNumber"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <Button
+        android:id="@+id/btn_infoClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_infoSteps"
+        app:layout_constraintVertical_bias="0.047" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
