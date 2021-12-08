@@ -14,7 +14,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="4dp"
-        android:text="Cancel"
+        android:text="@string/cancel"
         app:layout_constraintVertical_bias="0.976" />
 
     <Button
@@ -25,7 +25,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="210dp"
         android:layout_marginBottom="3dp"
-        android:text="Finish Registration"
+        android:text="@string/finishRegistration"
         app:layout_constraintVertical_bias="0.976" />
 
     <Switch
@@ -36,7 +36,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="-1dp"
         android:layout_marginEnd="0dp"
-        android:text="Do you have a pension?"
+        android:text="@string/elderlyStylePension"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -48,7 +48,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -65,7 +65,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="73dp"
         android:layout_marginEnd="3dp"
-        android:text="Do you recieve any other income?"
+        android:text="@string/elderlyStyleIncome"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml"
         tools:layout_editor_absoluteX="0dp"
@@ -82,7 +82,7 @@
         android:layout_marginTop="75dp"
         android:layout_marginEnd="1dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -98,7 +98,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="122dp"
         android:layout_marginEnd="1dp"
-        android:text="Do you pay for Rent/Mortgage(utilities included)?"
+        android:text="@string/elderlyStyleMortgage"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml"
         tools:layout_editor_absoluteX="-22dp"
@@ -115,7 +115,7 @@
         android:layout_marginTop="167dp"
         android:layout_marginEnd="-1dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -131,7 +131,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="212dp"
         android:layout_marginEnd="0dp"
-        android:text="Do you pay for Health/Life Insurance?"
+        android:text="@string/elderlyStyleHealth"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml"
         tools:layout_editor_absoluteX="0dp"
@@ -148,7 +148,7 @@
         android:layout_marginTop="239dp"
         android:layout_marginEnd="3dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -164,7 +164,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="284dp"
         android:layout_marginEnd="0dp"
-        android:text="Do use any types of transit?"
+        android:text="@string/elderlyStyleTransit"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml"
         tools:layout_editor_absoluteX="-45dp"
@@ -181,7 +181,7 @@
         android:layout_marginTop="146dp"
         android:layout_marginEnd="201dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -195,7 +195,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="385dp"
         android:layout_marginEnd="1dp"
-        android:text="Do you own a Car?"
+        android:text="@string/elderlyStyleCar"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -207,7 +207,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="413dp"
         android:layout_marginEnd="247dp"
-        android:text="Insurance?"
+        android:text="@string/elderlyStyleGas"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -220,7 +220,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="417dp"
         android:layout_marginEnd="3dp"
-        android:text="Gas?"
+        android:text="@string/elderlyStyleGas"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -233,7 +233,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="420dp"
         android:layout_marginEnd="1dp"
-        android:text="Do you buy your own groceries?"
+        android:text="@string/elderlyStyleGroceries"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -248,7 +248,7 @@
         android:layout_marginTop="280dp"
         android:layout_marginEnd="200dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -262,7 +262,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="335dp"
         android:layout_marginEnd="-9dp"
-        android:text="How much do you spend on other expenses (ex. leisure)?"
+        android:text="@string/elderlyStyleMisc"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -277,7 +277,7 @@
         android:layout_marginTop="384dp"
         android:layout_marginEnd="201dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"

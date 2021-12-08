@@ -3,42 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/home"
-        android:title="Home"
+        android:title="@string/generalHome"
         android:orderInCategory="1"
         android:icon="@drawable/ic_baseline_home_24"
         app:showAsAction="always"/>
 
     <item android:id="@+id/details"
-        android:title="Details Page"
+        android:title="@string/directoryMainDetails"
         android:orderInCategory="2"
         android:icon="@drawable/ic_baseline_article_24"
         app:showAsAction="always"/>
 
     <item android:id="@+id/enterData"
-        android:title="Enter Data"
+        android:title="@string/directoryEnterData"
         android:orderInCategory="3"
         android:icon="@drawable/ic_baseline_create_24"
         app:showAsAction="always"/>
 
     <item android:id="@+id/breakdown"
-        android:title="Breakdown Page"
+        android:title="@string/directoryBreakdown"
         android:orderInCategory="4"
         android:icon="@drawable/ic_baseline_bar_chart_24"
         app:showAsAction="always"/>
 
     <item android:id="@+id/settings"
-        android:title="Settings"
+        android:title="@string/directorySettings"
         android:orderInCategory="5"
         android:icon="@drawable/ic_baseline_settings_24"
         app:showAsAction="always" >
         <menu>
 
             <item android:id="@+id/settingsPage"
-                android:title="Settings">
+                android:title="@string/directorySettings">
             </item>
 
             <item android:id="@+id/logout"
-                android:title="Log Out">
+                android:title="@string/directoryLog">
             </item>
         </menu>
     </item>

@@ -153,6 +153,24 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public boolean doesExist(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from users where email=?", new String[] {email});
+
+        boolean hasObject = false;
+        if (cursor.moveToNext()) {
+            String mail = cursor.getString(1);
+            if (mail.equals(email)) {
+                hasObject = true;
+            }
+
+        }
+
+
+        cursor.close();
+        return hasObject;
+    }
+
     public boolean isValidEmailAndPassword(String email, String password) {
         // get data from the database
         SQLiteDatabase db = this.getReadableDatabase();

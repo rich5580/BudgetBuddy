@@ -13,18 +13,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="3dp"
-        android:text="Do you have a company vehicle(s)?"
-        android:textSize="18sp"
+        android:text="@string/businessStyleVehicle"
+        android:textSize="20sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
         android:id="@+id/tv_Business_Vehicle_Gas_Label"
         android:layout_width="wrap_content"
+        android:textColor="@color/black"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="30dp"
-        android:text="Gas:"
+        android:text="@string/businessStyleGas"
         android:textSize="30sp"
         android:visibility="invisible" />
 
@@ -35,7 +36,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="60dp"
         android:layout_marginTop="30dp"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -44,12 +45,13 @@
         android:id="@+id/tv_Business_Vehicle_Insurance_Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="180dp"
-        android:text="Insurance:"
+        android:text="@string/businessStyleInsurance"
         android:textSize="30sp"
         android:visibility="invisible" />
 
@@ -60,7 +62,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="30dp"
-        android:hint="($/Month)"
+        android:hint="@string/perMonth"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -68,12 +70,13 @@
     <TextView
         android:id="@+id/tv_Business_Supplies_Label"
         android:layout_width="wrap_content"
+        android:textColor="@color/black"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="80dp"
-        android:text="Supplies/Equipment:"
+        android:text="@string/businessStyleSupplies"
         android:textSize="30sp" />
 
     <EditText
@@ -83,7 +86,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="80dp"
-        android:hint="($/Month)"
+        android:hint="@string/perMonth"
         android:text=""
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -91,12 +94,13 @@
     <TextView
         android:id="@+id/tv_Business_Wages_Label"
         android:layout_width="wrap_content"
+        android:textColor="@color/black"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="120dp"
-        android:text="Wages:"
+        android:text="@string/businessStyleWages"
         android:textSize="30sp" />
 
     <EditText
@@ -106,19 +110,20 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="120dp"
-        android:hint="($/Month)"
+        android:hint="@string/perMonth"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
         android:id="@+id/tv_Business_Advertising_Label"
         android:layout_width="wrap_content"
+        android:textColor="@color/black"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="160dp"
-        android:text="Advertising:"
+        android:text="@string/businessStyleAdvertising"
         android:textSize="30sp" />
 
     <EditText
@@ -128,19 +133,20 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="160dp"
-        android:hint="($/Month)"
+        android:hint="@string/perMonth"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
         android:id="@+id/tv_Business_Utilities_Label"
         android:layout_width="wrap_content"
+        android:textColor="@color/black"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="200dp"
-        android:text="Utilities/Services:"
+        android:text="@string/businessStyleUtilities"
         android:textSize="30sp" />
 
     <EditText
@@ -150,19 +156,20 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="200dp"
-        android:hint="($/Month)"
+        android:hint="@string/perMonth"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
         android:id="@+id/tv_Business_Taxes_Label"
         android:layout_width="wrap_content"
+        android:textColor="@color/black"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="240dp"
-        android:text="Taxes:"
+        android:text="@string/businessStyleTaxes"
         android:textSize="30sp" />
 
     <EditText
@@ -171,19 +178,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="240dp"
-        android:hint="($/Month)"
+        android:hint="@string/perMonth"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
         android:id="@+id/tv_Business_Income_Label"
         android:layout_width="wrap_content"
+        android:textColor="@color/black"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="340dp"
-        android:text="Business Income:"
+        android:text="@string/businessStyleIncome"
         android:textSize="30sp" />
 
     <EditText
@@ -193,7 +201,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="340dp"
-        android:hint="($/Month)"
+        android:hint="@string/perMonth"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -205,7 +213,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="199dp"
-        android:text="Finish Registration" />
+        android:text="@string/finishRegistration" />
 
     <Button
         android:id="@+id/btn_Business_Cancel"
@@ -215,6 +223,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Cancel" />
+        android:text="@string/cancel" />
 
 </RelativeLayout>

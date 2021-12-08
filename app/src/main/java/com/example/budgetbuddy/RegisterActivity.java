@@ -57,14 +57,14 @@ public class RegisterActivity extends AppCompatActivity {
                     if (first.equals("") || last.equals("") || mail.equals("") || pw.equals("") || repw.equals("")) {
                         Toast toast = Toast.makeText(RegisterActivity.this, "Please fill out register form before continuing.", Toast.LENGTH_LONG);
                         toast.show();
+                    } else if (helper.doesExist(mail)) {
+                        Toast.makeText(RegisterActivity.this, "This email is already in use.", Toast.LENGTH_LONG).show();
                     } else {
                         ContentValues values = new ContentValues();
                         values.put(UserDatabaseHelper.email, mail);
                         values.put(UserDatabaseHelper.f_name, first);
                         values.put(UserDatabaseHelper.l_name, last);
                         values.put(UserDatabaseHelper.password, pw);
-
-
 
                         if (pw.equals(repw)) {
                             if (spin.getSelectedItem().toString().equals("Adult")) {

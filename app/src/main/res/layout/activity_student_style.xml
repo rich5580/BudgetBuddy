@@ -17,7 +17,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="13dp"
-        android:text="Cancel" />
+        android:text="@string/cancel" />
 
     <Switch
         android:id="@+id/sw_Student_Car"
@@ -27,7 +27,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="-1dp"
         android:layout_marginEnd="0dp"
-        android:text="Do you own a Car?"
+        android:text="@string/studentStyleCar"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -39,7 +39,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="242dp"
-        android:text="Insurance?"
+        android:text="@string/studentStyleInsurance"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -52,7 +52,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="74dp"
-        android:text="Gas?"
+        android:text="@string/studentStyleGas"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -65,7 +65,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="3dp"
-        android:text="Do you pay Rent? (Includes all utilities)"
+        android:text="@string/studentStyleRent"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -80,7 +80,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginEnd="202dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -94,7 +94,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="77dp"
         android:layout_marginEnd="3dp"
-        android:text="Do you pay for Tuition?"
+        android:text="@string/studentStyleTuition"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -106,7 +106,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="106dp"
         android:layout_marginEnd="3dp"
-        android:text="Do you have a Job?"
+        android:text="@string/studentStyleJob"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -121,7 +121,7 @@
         android:layout_marginTop="107dp"
         android:layout_marginEnd="201dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -135,7 +135,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="182dp"
         android:layout_marginEnd="-2dp"
-        android:text="Do you have any Dependencies?"
+        android:text="@string/studentStyleDepend"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -147,7 +147,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="264dp"
         android:layout_marginEnd="244dp"
-        android:text="Children?"
+        android:text="@string/studentStyleChildren"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -160,7 +160,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="263dp"
         android:layout_marginEnd="77dp"
-        android:text="Pets?"
+        android:text="@string/studentStylePets"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -173,7 +173,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="241dp"
         android:layout_marginEnd="-2dp"
-        android:text="Do you have any Loans?"
+        android:text="@string/studentStyleLoans"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -185,7 +185,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="268dp"
         android:layout_marginEnd="-1dp"
-        android:text="Do use any types of transit?"
+        android:text="@string/studentStyleTransit"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -200,7 +200,7 @@
         android:layout_marginTop="268dp"
         android:layout_marginEnd="201dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -214,6 +214,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="199dp"
-        android:text="Finish Registration" />
+        android:text="@string/finishRegistration" />
 
 </RelativeLayout>

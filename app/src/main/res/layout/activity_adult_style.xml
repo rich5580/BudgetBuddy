@@ -37,7 +37,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="0dp"
-        android:text="Do you own a Car?"
+        android:text="@string/adultStyleOwnCar"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -50,7 +50,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="99dp"
         android:ems="10"
-        android:text="Monthly car insurance cost:"
+        android:text="@string/adultStyleCarInsurance"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -66,7 +66,7 @@
         android:layout_marginTop="11dp"
         android:layout_marginEnd="201dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -81,7 +81,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="87dp"
         android:ems="10"
-        android:text="Monthly gas cost estimate:"
+        android:text="@string/adultStyleGas"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -97,7 +97,7 @@
         android:layout_marginTop="66dp"
         android:layout_marginEnd="202dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -112,7 +112,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="126dp"
         android:layout_marginEnd="0dp"
-        android:text="Do you own a property?"
+        android:text="@string/adultStyleProperty"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -125,7 +125,7 @@
         android:layout_marginTop="147dp"
         android:layout_marginEnd="87dp"
         android:ems="10"
-        android:text="Monthly property insurance cost:"
+        android:text="@string/adultStylePropertyInsurance"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -142,7 +142,7 @@
         android:layout_marginTop="128dp"
         android:layout_marginEnd="203dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -156,7 +156,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="39dp"
         android:layout_marginEnd="1dp"
-        android:text="Are you currently paying off a mortgage?"
+        android:text="@string/adultStyleMortgage"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -171,7 +171,7 @@
         android:layout_marginTop="178dp"
         android:layout_marginEnd="202dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -185,7 +185,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="0dp"
-        android:text="Are you currently renting a property?"
+        android:text="@string/adultStyleRent"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -200,7 +200,7 @@
         android:layout_marginTop="225dp"
         android:layout_marginEnd="202dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -214,7 +214,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="-1dp"
-        android:text="Are you paying for health/life insurance?"
+        android:text="@string/adultStyleHealth"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -229,7 +229,7 @@
         android:layout_marginTop="274dp"
         android:layout_marginEnd="201dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -243,7 +243,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="23dp"
         android:layout_marginEnd="1dp"
-        android:text="Do you have a source of income?"
+        android:text="@string/adultStyleIncome"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -256,7 +256,7 @@
         android:layout_marginTop="360dp"
         android:layout_marginEnd="89dp"
         android:ems="10"
-        android:text="Estimated monthly income:"
+        android:text="@string/adultStyleMonthlyIncome"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -272,7 +272,7 @@
         android:layout_marginTop="347dp"
         android:layout_marginEnd="203dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -286,7 +286,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="0dp"
-        android:text="Do you have any dependencies?"
+        android:text="@string/adultStyleDependencies"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -298,7 +298,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="442dp"
         android:layout_marginEnd="265dp"
-        android:text="Children?"
+        android:text="@string/adultStyleChildren"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -311,7 +311,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="442dp"
         android:layout_marginEnd="164dp"
-        android:text="Family?"
+        android:text="@string/adultStyleFamily"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -324,7 +324,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="464dp"
         android:layout_marginEnd="266dp"
-        android:text="Pets?"
+        android:text="@string/adultStylePets"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -337,7 +337,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="465dp"
         android:layout_marginEnd="165dp"
-        android:text="Others?"
+        android:text="@string/adultStyleOthers"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -352,7 +352,7 @@
         android:layout_marginEnd="47dp"
         android:textColor="@color/black"
         android:ems="10"
-        android:text="Estimated monthly spending (dependencies + leisure/other):"
+        android:text="@string/adultStyleMonthlyDepend"
         android:textSize="18sp"
         android:visibility="visible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -368,7 +368,7 @@
         android:layout_marginTop="491dp"
         android:layout_marginEnd="200dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
@@ -382,7 +382,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="111dp"
         android:layout_marginEnd="3dp"
-        android:text="Are you paying off any debt?"
+        android:text="@string/adultStyleDebt"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -397,7 +397,7 @@
         android:layout_marginTop="537dp"
         android:layout_marginEnd="204dp"
         android:ems="10"
-        android:hint="$/Month"
+        android:hint="@string/perMonth"
         android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
