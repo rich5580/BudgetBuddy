@@ -350,12 +350,40 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         return returnList;
     }
 
-    public void TotalBudget(){
-        //Needs to compate UserSpending to income at yearly, monthly, weekly, and daily. Income - total spending
+    public double Income(){
+        //Needs to send income;
+        Double income;
         SQLiteDatabase db = this.getReadableDatabase();
-        String queryString = "SELECT * FROM user_data WHERE user = ?";
+        if (ACTIVE_TYPE.equals("Student")) {
+            String queryString = "SELECT weekly_income FROM user_students WHERE user = ?";
+            Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+            cursor.moveToFirst();
+            income = cursor.getDouble(0);
+            cursor.close();
+        }
+        else if (ACTIVE_TYPE.equals("Elderly")) {
+            String queryString = "SELECT pension_monthly, otherincome_monthly FROM user_elderly WHERE user = ?";
+            Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+            cursor.moveToFirst();
+            income = cursor.getDouble(0) + cursor.getDouble(1);
+            cursor.close();
+        }
+        else if (ACTIVE_TYPE.equals("Adult")) {
+            String queryString = "SELECT income_monthly FROM user_adults WHERE user = ?";
+            Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+            cursor.moveToFirst();
+            income = cursor.getDouble(0);
+            cursor.close();
+        }
+        else  {
+            String queryString = "SELECT income_monthly FROM user_business WHERE user = ?";
+            Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+            cursor.moveToFirst();
+            income = cursor.getDouble(0);
+            cursor.close();
+        }
 
-        Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+        return income;
     }
 
 
@@ -395,16 +423,16 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
     public void modData(String type, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
         if (ACTIVE_TYPE.equals("Student")) {
-            String queryString = "UPDATE user_students SET " + type + "= ? WHERE user= ?";
+            String queryString = "UPDATE user_students SET " + type + " = value WHERE user= ?";
             db.rawQuery(queryString, new String[] {value, String.valueOf(ACTIVE_USERID)});
         } else if (ACTIVE_TYPE.equals("Adult")) {
-            String queryString = "UPDATE user_adults SET " + type + "= ? WHERE user= ?";
+            String queryString = "UPDATE user_adults SET " + type + " = value WHERE user= ?";
             db.rawQuery(queryString, new String[] {value, String.valueOf(ACTIVE_USERID)});
         } else if (ACTIVE_TYPE.equals("Elderly")) {
-            String queryString = "UPDATE user_elderly SET " + type + "= ? WHERE user= ?";
+            String queryString = "UPDATE user_elderly SET " + type + " = value WHERE user= ?";
             db.rawQuery(queryString, new String[] {value, String.valueOf(ACTIVE_USERID)});
         } else if (ACTIVE_TYPE.equals("Business")) {
-            String queryString = "UPDATE user_business SET " + type + "= ? WHERE user= ?";
+            String queryString = "UPDATE user_business SET " + type + " = value WHERE user= ?";
             db.rawQuery(queryString, new String[] {value, String.valueOf(ACTIVE_USERID)});
         }
     }
