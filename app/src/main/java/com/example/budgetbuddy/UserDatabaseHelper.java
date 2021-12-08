@@ -141,15 +141,10 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         ACTIVE_USER = (String) values.get(UserDatabaseHelper.email);
     }
 
-    public void getUser(SQLiteDatabase db, String email){
-        Cursor data = db.rawQuery("SELECT id FROM users WHERE email=?", new String[]{email});
-        ACTIVE_USER = String.valueOf(data.getInt(0));
-    }
-
     public void DeleteUser(){
         SQLiteDatabase db = this.getWritableDatabase();
-        String queryString = "DELETE FROM " + TABLE_NAME + " WHERE " + email + "= ?";
-        db.rawQuery(queryString, new String[] {ACTIVE_USER});
+//        String queryString = "DELETE FROM " + TABLE_NAME + " WHERE " + "id" + "= ?";
+        db.delete("users", "email=?", new String[]{ACTIVE_USER});
 
     }
 
