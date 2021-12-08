@@ -94,7 +94,7 @@
     <string name="studentStylePets">Pets?</string>
     <string name="studentStyleLoans">Do you have any loans?</string>
     <string name="studentStyleTransit">Do use any types of transit?</string>
-    <string name="deletePopupText">Are you sure you wan to delete this account?</string>
+    <string name="deletePopupText">Are you sure you want to delete this account?</string>
     <string name="deletePopupYes">Yes</string>
     <string name="deletePopupCancel">Cancel</string>
     <string name="extraPopupType">Type of Purchase:</string>
