@@ -207,7 +207,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="413dp"
         android:layout_marginEnd="247dp"
-        android:text="@string/elderlyStyleGas"
+        android:text="@string/elderlyStyleInsurance"
         android:textSize="18sp"
         android:visibility="invisible"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
