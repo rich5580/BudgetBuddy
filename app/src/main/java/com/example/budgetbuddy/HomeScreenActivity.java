@@ -10,12 +10,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +27,10 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     TextView welcomeMessage;
     TextView welcome_date;
+    TextView current_spending;
     String retrieved_email;
     int active_userid;
+    ProgressBar pb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         String date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy", new java.util.Date()));
         welcome_date.setText("Today's Date is: " + date);
+
         //Including display of current user Income and a field to change it could be cool but not necessary
         //Fragment wants, needs to become spending, displaying users yearly, monthly, weekly, and daily spending (UserSpending Function)
         //Fragment needs, needs to become income minus spending aka budget showing yearly, monthly, weekly, and daily budget (TotalBudget)
@@ -56,6 +61,11 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         Button needs_btn = (Button) findViewById(R.id.btn_needs);
         Button wants_btn = (Button) findViewById(R.id.btn_wants);
+        current_spending = (TextView) findViewById(R.id.current_spending);
+
+        Double keyed_purchases = helper.KeyedPurchasesTotal();
+        current_spending.setText("$ "+ keyed_purchases.toString());
+
 
         needs_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +83,8 @@ public class HomeScreenActivity extends AppCompatActivity {
                 ft.commit();
             }
         });
+
+
     }
 
     @Override
@@ -86,32 +98,26 @@ public class HomeScreenActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.logout:
-                Intent intent = new Intent(HomeScreenActivity.this, MainActivity.class);
-                intent.putExtra("active_user",active_userid);
-                startActivity(intent);
+                finish();
                 Toast toast = Toast.makeText(HomeScreenActivity.this, "You have logged out.", Toast.LENGTH_LONG);
                 toast.show();
                 return true;
             case R.id.details:
-                finish();
                 Intent intent2 = new Intent(HomeScreenActivity.this, DetailsPageActivity.class);
                 intent2.putExtra("active_user",active_userid);
                 startActivity(intent2);
                 return true;
             case R.id.enterData:
-                finish();
                 Intent intent3 = new Intent(HomeScreenActivity.this, EnterDataActivity.class);
                 intent3.putExtra("active_user",active_userid);
                 startActivity(intent3);
                 return true;
             case R.id.breakdown:
-                finish();
                 Intent intent4 = new Intent(HomeScreenActivity.this, BreakdownPageActivity.class);
                 intent4.putExtra("active_user",active_userid);
                 startActivity(intent4);
                 return true;
             case R.id.settingsPage:
-                finish();
                 Intent intent5 = new Intent(HomeScreenActivity.this, SettingPageActivity.class);
                 intent5.putExtra("active_user",active_userid);
                 startActivity(intent5);

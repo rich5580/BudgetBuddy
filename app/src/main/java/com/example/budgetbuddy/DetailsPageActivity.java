@@ -29,7 +29,7 @@ public class DetailsPageActivity extends AppCompatActivity {
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
     private Button btn_delete, btn_cancel;
-    TextView tv_pAmount, tv_pType, tv_pOccur, tv_pDesc, tv_pAmount2, tv_pType2, tv_pOccur2, tv_pDesc2;
+    TextView tv_pAmount, tv_pType, tv_pDesc, tv_pAmount2, tv_pType2, tv_pDesc2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,22 +76,18 @@ public class DetailsPageActivity extends AppCompatActivity {
                 toast.show();
                 return true;
             case R.id.home:
-                finish();
                 Intent intent2 = new Intent(DetailsPageActivity.this, HomeScreenActivity.class);
                 startActivity(intent2);
                 return true;
             case R.id.enterData:
-                finish();
                 Intent intent3 = new Intent(DetailsPageActivity.this, EnterDataActivity.class);
                 startActivity(intent3);
                 return true;
             case R.id.breakdown:
-                finish();
                 Intent intent4 = new Intent(DetailsPageActivity.this, BreakdownPageActivity.class);
                 startActivity(intent4);
                 return true;
             case R.id.settingsPage:
-                finish();
                 Intent intent5 = new Intent(DetailsPageActivity.this, SettingPageActivity.class);
                 startActivity(intent5);
                 return true;

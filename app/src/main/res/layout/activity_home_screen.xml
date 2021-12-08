@@ -26,36 +26,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/pb_budgetLeft"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="132dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="96dp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/btn_wants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Net Budget"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn_needs"
-        app:layout_constraintTop_toBottomOf="@+id/pb_budgetLeft" />
+        app:layout_constraintTop_toBottomOf="@+id/current_spending" />
 
     <Button
         android:id="@+id/btn_needs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Spending"
         app:layout_constraintEnd_toStartOf="@+id/btn_wants"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pb_budgetLeft" />
+        app:layout_constraintTop_toBottomOf="@+id/current_spending" />
 
     <FrameLayout
         android:id="@+id/flFragment"
@@ -66,6 +57,30 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_needs" />
+
+    <TextView
+        android:id="@+id/text_currentSpending"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Current Spending"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hs_date" />
+
+    <TextView
+        android:id="@+id/current_spending"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="$0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_currentSpending" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

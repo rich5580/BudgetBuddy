@@ -76,7 +76,6 @@ public class BreakdownPageActivity extends AppCompatActivity {
                 if (edt_iAmount.getText().toString().equals("")) {
                     Toast.makeText(BreakdownPageActivity.this, "Add amount", Toast.LENGTH_LONG).show();
                 } else {
-//                    double x = Double.parseDouble(edt_iAmount.getText().toString());
                     helper.modData(model.getFieldName(),edt_iAmount.getText().toString());
                     dialog.dismiss();
                     showBreakdown(helper);

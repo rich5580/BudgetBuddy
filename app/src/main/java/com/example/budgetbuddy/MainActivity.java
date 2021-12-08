@@ -5,16 +5,16 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public String mail, pw;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
+    ProgressBar pb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         UserDatabaseHelper helper = new UserDatabaseHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
+
+        pb = (ProgressBar) findViewById(R.id.pb_mainScreen);
 
         email = (EditText) findViewById(R.id.et_Email);
         password = (EditText) findViewById(R.id.et_Password);
@@ -58,28 +61,19 @@ public class MainActivity extends AppCompatActivity {
                         Toast toast = Toast.makeText(MainActivity.this, "Email and/or password does not exist.", Toast.LENGTH_LONG);
                         toast.show();
                     }
-//                    Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
-//
-//                    Cursor c = db.rawQuery("Select email,pswd from users where email= ?", new String[]{mail});
-//                    c.moveToFirst();
-//                    if (c.getCount() == 0) {
-//                        Toast toast = Toast.makeText(MainActivity.this, "Email and/or password does not exist.", Toast.LENGTH_LONG);
-//                        toast.show();
-//                    } else {
-//                        retrieved_email = c.getString(0);
-//                        retrieved_pw = c.getString(1);
-//                        if (retrieved_email.equals(mail) && retrieved_pw.equals(pw)) {
-//                            intent.putExtra("user_email",mail);
-//                            startActivity(intent);
-//                        } else {
-//                            Toast toast = Toast.makeText(MainActivity.this, "Email and/or password does not exist.", Toast.LENGTH_LONG);
-//                            toast.show();
-//                        }
-//                    }
-//                    c.close();
+
                 }
             }
         });
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                // yourMethod();
+                pb.setVisibility(View.INVISIBLE);
+
+            }
+        }, 1000);   //5 seconds
 
         register = (Button) findViewById(R.id.btn_Register);
         register.setOnClickListener(new View.OnClickListener() {
