@@ -100,7 +100,7 @@ public class EnterDataActivity extends AppCompatActivity {
                         Toast.makeText(EnterDataActivity.this, "Please enter a value.", Toast.LENGTH_LONG).show();
                     } else {
                         ContentValues values = new ContentValues();
-                        values.put("amount", Integer.parseInt(amount.getText().toString()));
+                        values.put("amount", Double.parseDouble(amount.getText().toString()));
                         values.put("spend_type", spn_elderly.getSelectedItem().toString());
                         values.put("description",desc.getText().toString());
                         values.put("user", active_user);
