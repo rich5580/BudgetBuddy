@@ -301,48 +301,51 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         //*****WORKS FOR STUDENT ONLY RIGHT NOW***
         ArrayList<Double> returnList = new ArrayList<Double>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String queryString = "SELECT * FROM user_data WHERE user = ?";
-        double groceries = 0;
-        double rent = 0;
-        double leisure = 0;
-        double tuition = 0;
-        double loans = 0;
-        double transit = 0;
-        double gas_money = 0;
-        double other = 0;
+
+        if (ACTIVE_TYPE.equals("Student")) {
+            String queryString = "SELECT * FROM user_data WHERE user = ?";
+            double groceries = 0;
+            double rent = 0;
+            double leisure = 0;
+            double tuition = 0;
+            double loans = 0;
+            double transit = 0;
+            double gas_money = 0;
+            double other = 0;
 
 
-        Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
-        cursor.moveToFirst();
-        while (cursor.moveToNext()){
-            if(cursor.getString(2).equals("Groceries")){
-                groceries += cursor.getDouble(1);
-            } else if (cursor.getString(2).equals("Rent")){
-                rent += cursor.getDouble(1);
-            } else if (cursor.getString(2).equals("Leisure")){
-                leisure += cursor.getDouble(1);
-            } else if (cursor.getString(2).equals("Tuition")){
-                tuition += cursor.getDouble(1);
-            } else if (cursor.getString(2).equals("Loans")){
-                loans += cursor.getDouble(1);
-            } else if (cursor.getString(2).equals("Transit")){
-                transit += cursor.getDouble(1);
-            } else if (cursor.getString(2).equals("Gas money")){
-                gas_money += cursor.getDouble(1);
-            } else if (cursor.getString(2).equals("Other")){
-                other += cursor.getDouble(1);
+            Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
+            cursor.moveToFirst();
+            while (cursor.moveToNext()){
+                if(cursor.getString(2).equals("Groceries")){
+                    groceries += cursor.getDouble(1);
+                } else if (cursor.getString(2).equals("Rent")){
+                    rent += cursor.getDouble(1);
+                } else if (cursor.getString(2).equals("Leisure")){
+                    leisure += cursor.getDouble(1);
+                } else if (cursor.getString(2).equals("Tuition")){
+                    tuition += cursor.getDouble(1);
+                } else if (cursor.getString(2).equals("Loans")){
+                    loans += cursor.getDouble(1);
+                } else if (cursor.getString(2).equals("Transit")){
+                    transit += cursor.getDouble(1);
+                } else if (cursor.getString(2).equals("Gas money")){
+                    gas_money += cursor.getDouble(1);
+                } else if (cursor.getString(2).equals("Other")){
+                    other += cursor.getDouble(1);
+                }
+
             }
 
+            returnList.add(groceries);
+            returnList.add(rent);
+            returnList.add(leisure);
+            returnList.add(tuition);
+            returnList.add(loans);
+            returnList.add(transit);
+            returnList.add(gas_money);
+            returnList.add(other);
         }
-
-        returnList.add(groceries);
-        returnList.add(rent);
-        returnList.add(leisure);
-        returnList.add(tuition);
-        returnList.add(loans);
-        returnList.add(transit);
-        returnList.add(gas_money);
-        returnList.add(other);
 
         return returnList;
     }
