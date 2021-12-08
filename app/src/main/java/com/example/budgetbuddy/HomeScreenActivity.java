@@ -98,7 +98,8 @@ public class HomeScreenActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.logout:
-                finish();
+                Intent intent = new Intent(HomeScreenActivity.this, MainActivity.class);
+                startActivity(intent);
                 Toast toast = Toast.makeText(HomeScreenActivity.this, "You have logged out.", Toast.LENGTH_LONG);
                 toast.show();
                 return true;

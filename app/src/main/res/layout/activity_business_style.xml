@@ -87,6 +87,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="80dp"
         android:hint="@string/perMonth"
+        android:inputType="numberDecimal"
         android:text=""
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -110,6 +111,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="120dp"
+        android:inputType="numberDecimal"
         android:hint="@string/perMonth"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -130,6 +132,7 @@
         android:id="@+id/edt_Business_Advertising"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="160dp"
@@ -154,6 +157,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:inputType="numberDecimal"
         android:layout_marginStart="100dp"
         android:layout_marginTop="200dp"
         android:hint="@string/perMonth"
@@ -178,6 +182,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="240dp"
+        android:inputType="numberDecimal"
         android:hint="@string/perMonth"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -185,13 +190,13 @@
     <TextView
         android:id="@+id/tv_Business_Income_Label"
         android:layout_width="wrap_content"
-        android:textColor="@color/black"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="340dp"
         android:text="@string/businessStyleIncome"
+        android:textColor="@color/black"
         android:textSize="30sp" />
 
     <EditText
@@ -201,6 +206,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="340dp"
+        android:inputType="numberDecimal"
         android:hint="@string/perMonth"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />

@@ -54,7 +54,7 @@
     <string name="businessStyleAdvertising">Advertising:</string>
     <string name="businessStyleUtilities">Utilities/Services:</string>
     <string name="businessStyleTaxes">Taxes:</string>
-    <string name="businessStyleIncome">BusinessIncome:</string>
+    <string name="businessStyleIncome">Business Income:</string>
     <string name="elderlyStylePension">Do you have a pension?</string>
     <string name="elderlyStyleIncome">Do you receive any other income?</string>
     <string name="elderlyStyleMortgage">Do you pay for Rent/Mortgage(utilities included)?</string>
