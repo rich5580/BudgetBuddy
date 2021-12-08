@@ -117,8 +117,8 @@
 
     <TextView
         android:id="@+id/tv_ryearly_display"
-        android:layout_width="120dp"
-        android:layout_height="33dp"
+        android:layout_width="127dp"
+        android:layout_height="42dp"
         android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

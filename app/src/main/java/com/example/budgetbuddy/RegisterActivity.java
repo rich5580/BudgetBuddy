@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
                         toast.show();
                     } else if (helper.doesExist(mail)) {
                         Toast.makeText(RegisterActivity.this, "This email is already in use.", Toast.LENGTH_LONG).show();
-                    } else {
+                    } else if (mail.contains("@")) {
                         ContentValues values = new ContentValues();
                         values.put(UserDatabaseHelper.email, mail);
                         values.put(UserDatabaseHelper.f_name, first);
@@ -120,6 +120,8 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast toast = Toast.makeText(RegisterActivity.this, "Your passwords do not match.", Toast.LENGTH_LONG);
                             toast.show();
                         }
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "Not an email.", Toast.LENGTH_LONG).show();
 
                     }
 

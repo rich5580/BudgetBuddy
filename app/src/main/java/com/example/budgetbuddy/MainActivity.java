@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public String mail, pw;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
+    ImageView image;
     ProgressBar pb;
 
     @Override
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         UserDatabaseHelper helper = new UserDatabaseHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
+        image = (ImageView) findViewById(R.id.imageView);
+        image.setImageResource(R.drawable.icons8_budget_100__1_);
         pb = (ProgressBar) findViewById(R.id.pb_mainScreen);
 
         email = (EditText) findViewById(R.id.et_Email);

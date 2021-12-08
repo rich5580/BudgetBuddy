@@ -25,10 +25,10 @@
         android:text="@string/extraPopupSpent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.243"
+        app:layout_constraintHorizontal_bias="0.244"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_popupType"
-        app:layout_constraintVertical_bias="0.019" />
+        app:layout_constraintVertical_bias="0.042" />
 
     <TextView
         android:id="@+id/tv_popupDescription"
@@ -44,8 +44,8 @@
 
     <TextView
         android:id="@+id/tv_popupType2"
-        android:layout_width="115dp"
-        android:layout_height="26dp"
+        android:layout_width="111dp"
+        android:layout_height="44dp"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,10 +61,10 @@
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.412"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toEndOf="@+id/tv_popupAmount"
         app:layout_constraintTop_toBottomOf="@+id/tv_popupType2"
-        app:layout_constraintVertical_bias="0.02" />
+        app:layout_constraintVertical_bias="0.019" />
 
     <TextView
         android:id="@+id/tv_popupDescription2"
