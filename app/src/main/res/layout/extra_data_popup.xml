@@ -7,18 +7,6 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tv_popupReOccurring"
-        android:layout_width="115dp"
-        android:layout_height="26dp"
-        android:text="Re-Occurring:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.243"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_popupDescription"
-        app:layout_constraintVertical_bias="0.023" />
-
-    <TextView
         android:id="@+id/tv_popupType"
         android:layout_width="115dp"
         android:layout_height="26dp"
@@ -90,18 +78,6 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_popupAmount2"
         app:layout_constraintVertical_bias="0.023" />
 
-    <TextView
-        android:id="@+id/tv_popupReOccurring2"
-        android:layout_width="115dp"
-        android:layout_height="26dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.412"
-        app:layout_constraintStart_toEndOf="@+id/tv_popupReOccurring"
-        app:layout_constraintTop_toBottomOf="@+id/tv_popupDescription2"
-        app:layout_constraintVertical_bias="0.02" />
-
     <Button
         android:id="@+id/btn_popupClose"
         android:layout_width="wrap_content"
@@ -109,10 +85,10 @@
         android:text="Close"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.718"
+        app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_popupReOccurring2"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_popupDescription2"
+        app:layout_constraintVertical_bias="0.038" />
 
     <Button
         android:id="@+id/btn_popupDelete"
@@ -121,10 +97,10 @@
         android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintHorizontal_bias="0.309"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_popupReOccurring"
-        app:layout_constraintVertical_bias="0.086" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_popupDescription"
+        app:layout_constraintVertical_bias="0.039" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

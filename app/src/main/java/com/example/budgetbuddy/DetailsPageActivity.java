@@ -109,8 +109,6 @@ public class DetailsPageActivity extends AppCompatActivity {
         tv_pAmount2 = (TextView) dataPopupView.findViewById(R.id.tv_popupAmount2);
         tv_pDesc = (TextView) dataPopupView.findViewById(R.id.tv_popupDescription);
         tv_pDesc2 = (TextView) dataPopupView.findViewById(R.id.tv_popupDescription2);
-        tv_pOccur = (TextView) dataPopupView.findViewById(R.id.tv_popupReOccurring);
-        tv_pOccur2 = (TextView) dataPopupView.findViewById(R.id.tv_popupReOccurring2);
         btn_delete = (Button) dataPopupView.findViewById(R.id.btn_popupDelete);
         btn_cancel = (Button) dataPopupView.findViewById(R.id.btn_popupClose);
 

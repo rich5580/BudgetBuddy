@@ -4,6 +4,7 @@ public class DataModel {
     private double amount;
     private String spend_type, description;
     private int id;
+    private String fieldName;
 
     public DataModel(int id, double amount, String spend_type, String description) {
         this.id = id;
@@ -11,9 +12,10 @@ public class DataModel {
         this.spend_type = spend_type;
         this.description = description;
     }
-    public DataModel(double amount, String spend_type){
+    public DataModel(double amount, String spend_type, String fieldName) {
         this.amount = amount;
         this.spend_type = spend_type;
+        this.fieldName = fieldName;
     }
 
     public DataModel() {
@@ -33,6 +35,9 @@ public class DataModel {
     }
     public String getSpend_type() {
         return spend_type;
+    }
+    public String getFieldName() {
+        return fieldName;
     }
     public String getDescription() {
         return description;

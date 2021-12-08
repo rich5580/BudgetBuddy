@@ -13,8 +13,10 @@
         <entry key="..\:/Users/Samuel Turschic/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/activity_student_style.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Samuel Turschic/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/extra_data_popup.xml" value="0.24818840579710144" />
         <entry key="..\:/Users/Samuel Turschic/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/fragment_userdata_needs.xml" value="0.24818840579710144" />
+        <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/about_popup.xml" value="0.1551796157059315" />
         <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/activity_adult_style.xml" value="0.37135416666666665" />
         <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/activity_business_style.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/activity_details_page.xml" value="0.26902173913043476" />
         <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/activity_elderly_style.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/activity_enter_data.xml" value="0.25" />
         <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/activity_home_screen.xml" value="0.38697916666666665" />
@@ -25,6 +27,8 @@
         <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/activity_student_style.xml" value="0.25" />
         <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/car_insurance_activity.xml" value="0.28125" />
         <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/delete_acc_popup.xml" value="0.33" />
+        <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/extra_data_popup.xml" value="0.33" />
+        <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/layout/info_popup.xml" value="0.25" />
         <entry key="..\:/Users/harla/AndroidStudioProjects/BudgetBuddy/app/src/main/res/menu/directorymain.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_details_page.xml" value="0.38125" />
         <entry key="app/src/main/res/layout/activity_enter_data.xml" value="0.38125" />

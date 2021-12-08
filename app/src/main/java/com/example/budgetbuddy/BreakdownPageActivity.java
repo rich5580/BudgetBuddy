@@ -1,6 +1,7 @@
 package com.example.budgetbuddy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,7 +11,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,21 +25,72 @@ import java.util.ArrayList;
 public class BreakdownPageActivity extends AppCompatActivity {
     ListView lv_breakdown;
     ArrayAdapter breakdownAdapter;
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+    TextView tv_iType;
+    EditText edt_iAmount;
+    Button btn_mod, btn_close;
+    UserDatabaseHelper helper = new UserDatabaseHelper(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_breakdown_page);
         //Budget breakdown page NEEDS listview displaying monthly spending for each category as an item
 
-        UserDatabaseHelper helper = new UserDatabaseHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
         lv_breakdown = (ListView) findViewById(R.id.lv_breakdown);
-        //TextView monthly_total = (TextView) findViewById(R.id.monthly_total);
+        lv_breakdown.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                DataModel clickedInfo = (DataModel) adapterView.getItemAtPosition(i);
+                createInfoDialog(clickedInfo);
+            }
+        });
         showBreakdown(helper);
 
 
 
+    }
+
+    public void createInfoDialog(DataModel model) {
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View infoPopupView = getLayoutInflater().inflate(R.layout.info_popup, null);
+
+        tv_iType = (TextView) infoPopupView.findViewById(R.id.tv_dataPopupType2);
+        edt_iAmount = (EditText) infoPopupView.findViewById(R.id.edt_dataAmount);
+        btn_close = (Button) infoPopupView.findViewById(R.id.btn_popupClose);
+        btn_mod = (Button) infoPopupView.findViewById(R.id.btn_popupMod);
+
+        tv_iType.setText(model.getSpend_type());
+        edt_iAmount.setHint(String.valueOf(model.getAmount()));
+
+        dialogBuilder.setView(infoPopupView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        btn_mod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (edt_iAmount.getText().toString().equals("")) {
+                    Toast.makeText(BreakdownPageActivity.this, "Add amount", Toast.LENGTH_LONG).show();
+                } else {
+//                    double x = Double.parseDouble(edt_iAmount.getText().toString());
+                    helper.modData(model.getFieldName(),edt_iAmount.getText().toString());
+                    dialog.dismiss();
+                    showBreakdown(helper);
+                }
+
+            }
+        });
+
+        btn_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
     }
 
     private void showBreakdown(UserDatabaseHelper helper){

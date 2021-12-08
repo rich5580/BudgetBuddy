@@ -75,7 +75,7 @@ public class AdultStyleActivity extends AppCompatActivity {
                 values.put("car_insurance", edt_car.getText().toString());
                 values.put("gas_monthly",edt_gas.getText().toString());
                 values.put("own_property", sw_prop.isChecked());
-                values.put("property_ins_yearly",edt_prop.getText().toString());
+                values.put("property_ins_monthly",edt_prop.getText().toString());
                 values.put("mortgage",sw_mort.isChecked());
                 values.put("mortgage_monthly", edt_mort.getText().toString());
                 values.put("renting",sw_rent.isChecked());

@@ -63,7 +63,7 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
             "car_insurance DOUBLE," +
             "gas_monthly DOUBLE," +
             "own_property BOOLEAN," +
-            "property_ins_yearly DOUBLE," +
+            "property_ins_monthly DOUBLE," +
             "mortgage BOOLEAN," +
             "mortgage_monthly DOUBLE," +
             "renting BOOLEAN," +
@@ -254,7 +254,7 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
             spending.add(cursor.getDouble(1));
 
         } else if (ACTIVE_TYPE.equals("Adult")){
-            queryString = "SELECT car_insurance,gas_monthly,property_ins_yearly,mortgage_monthly,rent_monthly,health_life_monthly,dependency_monthly,debt_monthly FROM user_adults WHERE user = ?";
+            queryString = "SELECT car_insurance,gas_monthly,property_ins_monthly,mortgage_monthly,rent_monthly,health_life_monthly,dependency_monthly,debt_monthly FROM user_adults WHERE user = ?";
             Cursor cursor = db.rawQuery(queryString, new String[] {String.valueOf(ACTIVE_USERID)});
             cursor.moveToFirst();
             spending.add(cursor.getDouble(0));
@@ -388,6 +388,24 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return returnList;
     }
+
+    public void modData(String type, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        if (ACTIVE_TYPE.equals("Student")) {
+            String queryString = "UPDATE user_students SET " + type + "= ? WHERE user= ?";
+            db.rawQuery(queryString, new String[] {value, String.valueOf(ACTIVE_USERID)});
+        } else if (ACTIVE_TYPE.equals("Adult")) {
+            String queryString = "UPDATE user_adults SET " + type + "= ? WHERE user= ?";
+            db.rawQuery(queryString, new String[] {value, String.valueOf(ACTIVE_USERID)});
+        } else if (ACTIVE_TYPE.equals("Elderly")) {
+            String queryString = "UPDATE user_elderly SET " + type + "= ? WHERE user= ?";
+            db.rawQuery(queryString, new String[] {value, String.valueOf(ACTIVE_USERID)});
+        } else if (ACTIVE_TYPE.equals("Business")) {
+            String queryString = "UPDATE user_business SET " + type + "= ? WHERE user= ?";
+            db.rawQuery(queryString, new String[] {value, String.valueOf(ACTIVE_USERID)});
+        }
+    }
+
     public List<DataModel> BudgetBreakdown(){
         //Needs to calculate monthly spending for each individual category
         //Needs to display spending for each category as individual listview items
@@ -395,106 +413,107 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Double> spending = UserSpending();
         if(ACTIVE_TYPE.equals("Student")){
-
             Double rentAmount = spending.get(0);
             String rentType = "Monthly Rent";
-            DataModel rentData = new DataModel(rentAmount, rentType);
+            DataModel rentData = new DataModel(rentAmount, rentType, "rent_monthly");
             returnList.add(rentData);
             Double transitAmount = spending.get(1);
             String transitType = "Monthly Transit";
-            DataModel transitData = new DataModel(transitAmount, transitType);
+            DataModel transitData = new DataModel(transitAmount, transitType, "transit_monthly");
             returnList.add(transitData);
+
         } else if (ACTIVE_TYPE.equals("Elderly")){
             Double rentAmount = spending.get(0);
             String rentType = "Monthly Rent/Mortgage";
-            DataModel rentData = new DataModel(rentAmount, rentType);
+            DataModel rentData = new DataModel(rentAmount, rentType, "rent_mortgage");
             returnList.add(rentData);
             Double healthAmount = spending.get(1);
             String healthType = "Monthly Health/Life insurance";
-            DataModel healthData = new DataModel(healthAmount, healthType);
+            DataModel healthData = new DataModel(healthAmount, healthType, "healthlifeinsurance_monthly");
             returnList.add(healthData);
             Double transitAmount = spending.get(2);
             String transitType = "Monthly Transit";
-            DataModel transitData = new DataModel(transitAmount, transitType);
+            DataModel transitData = new DataModel(transitAmount, transitType, "transit_monthly");
             returnList.add(transitData);
             Double carAmount = spending.get(3);
             String carType = "Monthly Car Insurance";
-            DataModel carData = new DataModel(carAmount, carType);
+            DataModel carData = new DataModel(carAmount, carType, "car_insurance");
             returnList.add(carData);
             Double gasAmount = spending.get(4);
             String gasType = "Monthly Gas";
-            DataModel gasData = new DataModel(gasAmount, gasType);
+            DataModel gasData = new DataModel(gasAmount, gasType, "car_gas");
             returnList.add(gasData);
             Double grocAmount = spending.get(5);
             String grocType = "Monthly Grocery";
-            DataModel grocData = new DataModel(grocAmount, grocType);
+            DataModel grocData = new DataModel(grocAmount, grocType, "groceries_monthly");
             returnList.add(grocData);
             Double othAmount = spending.get(6);
             String othType = "Monthly Other Expenses";
-            DataModel othData = new DataModel(othAmount, othType);
+            DataModel othData = new DataModel(othAmount, othType, "otherexpense_monthly");
             returnList.add(othData);
 
         } else if (ACTIVE_TYPE.equals("Adult")){
             Double carAmount = spending.get(0);
             String carType = "Monthly Car Insurance";
-            DataModel carData = new DataModel(carAmount, carType);
+            DataModel carData = new DataModel(carAmount, carType, "car_insurance");
             returnList.add(carData);
             Double gasAmount = spending.get(1);
             String gasType = "Monthly Gas";
-            DataModel gasData = new DataModel(gasAmount, gasType);
+            DataModel gasData = new DataModel(gasAmount, gasType, "gas_monthly");
             returnList.add(gasData);
             Double propAmount = spending.get(2);
             String propType = "Monthly Property Insurance";
-            DataModel propData = new DataModel(propAmount, propType);
+            DataModel propData = new DataModel(propAmount, propType, "property_ins_monthly");
             returnList.add(propData);
             Double mortAmount = spending.get(3);
             String mortType = "Monthly Mortgage";
-            DataModel mortData = new DataModel(mortAmount, mortType);
+            DataModel mortData = new DataModel(mortAmount, mortType, "mortgage_monthly");
             returnList.add(mortData);
             Double rentAmount = spending.get(4);
             String rentType = "Monthly Rent";
-            DataModel rentData = new DataModel(rentAmount, rentType);
+            DataModel rentData = new DataModel(rentAmount, rentType, "rent_monthly");
             returnList.add(rentData);
             Double healthAmount = spending.get(5);
             String healthType = "Monthly Health Insurance";
-            DataModel healthData = new DataModel(healthAmount, healthType);
+            DataModel healthData = new DataModel(healthAmount, healthType, "health_life_monthly");
             returnList.add(healthData);
             Double depAmount = spending.get(6);
             String depType = "Monthly Dependencies";
-            DataModel depData = new DataModel(depAmount, depType);
+            DataModel depData = new DataModel(depAmount, depType, "dependency_monthly");
             returnList.add(depData);
             Double debtAmount = spending.get(7);
             String debtType = "Monthly Debt";
-            DataModel debtData = new DataModel(debtAmount, debtType);
+            DataModel debtData = new DataModel(debtAmount, debtType, "debt_monthly");
             returnList.add(debtData);
+
         } else if (ACTIVE_TYPE.equals("Business")){
             Double gasAmount = spending.get(0);
             String gasType = "Monthly Gas";
-            DataModel gasData = new DataModel(gasAmount, gasType);
+            DataModel gasData = new DataModel(gasAmount, gasType, "gas_monthly");
             returnList.add(gasData);
             Double insAmount = spending.get(1);
             String insType = "Monthly Insurance";
-            DataModel insData = new DataModel(insAmount, insType);
+            DataModel insData = new DataModel(insAmount, insType, "insurance_monthly");
             returnList.add(insData);
             Double supAmount = spending.get(2);
             String supType = "Monthly Supplies";
-            DataModel supData = new DataModel(supAmount, supType);
+            DataModel supData = new DataModel(supAmount, supType, "supplies_monthly");
             returnList.add(supData);
             Double wageAmount = spending.get(3);
             String wageType = "Monthly Wages";
-            DataModel wageData = new DataModel(wageAmount, wageType);
+            DataModel wageData = new DataModel(wageAmount, wageType, "wages_monthly");
             returnList.add(wageData);
             Double adAmount = spending.get(4);
             String adType = "Monthly Advertising";
-            DataModel adData = new DataModel(adAmount, adType);
+            DataModel adData = new DataModel(adAmount, adType, "advertising_monthly");
             returnList.add(adData);
             Double utilAmount = spending.get(5);
             String utilType = "Monthly Utilities";
-            DataModel utilData = new DataModel(utilAmount, utilType);
+            DataModel utilData = new DataModel(utilAmount, utilType, "utilities_monthly");
             returnList.add(utilData);
             Double taxAmount = spending.get(6);
             String taxType = "Monthly Taxes";
-            DataModel taxData = new DataModel(taxAmount, taxType);
+            DataModel taxData = new DataModel(taxAmount, taxType, "taxes_monthly");
             returnList.add(taxData);
 
         }
