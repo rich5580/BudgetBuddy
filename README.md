@@ -12,7 +12,7 @@ This project was done for a group project at Wilfrid Laurier for CP470 (Android 
 We were tasked to create an application using Android Studios.
 
 # How To Run:
-You need to have Android Studios to run this application.
+You need to have Android Studio to run this application.
 1. Once you have launched this application, a login screen will get displayed.
 2. Before you can use the application, you must register an account.
 3. Once you have registered an account, it will take you back to the login screen, so that you can login
@@ -50,8 +50,8 @@ Slides completed: December 7, 2021
 Video demo of application: December 8, 2021
 
 # Participation Record (% of effort):
-Harlan Rich – 25
-Connor Hagen – 25
-Samuel Turshic – 16
-Alan Iahnis – 18
+Harlan Rich – 25 |
+Connor Hagen – 25 |
+Samuel Turshic – 16 |
+Alan Iahnis – 18 |
 Warssay Habte – 16
