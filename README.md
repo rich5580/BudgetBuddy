@@ -9,7 +9,7 @@ Warssay Habte
 
 # Reason For Designing Application:
 This project was done for a group project at Wilfrid Laurier for CP470 (Android Programming).
-We were tasked to create an application using Android Studios.
+We were tasked to create an application using Android Studio.
 
 # How To Run:
 You need to have Android Studio to run this application.
