@@ -44,10 +44,10 @@ Incorporated:
 3. Time constraints due to other ongoing work and a hard deadline
 
 # Project Milestones: 
-Functional beta version of app: December 6, 2021
-Testing and documentation completed: December 7,2021
-Slides completed: December 7, 2021
-Video demo of application: December 8, 2021
+- Functional beta version of app: December 6, 2021
+- Testing and documentation completed: December 7,2021
+- Slides completed: December 7, 2021
+- Video demo of application: December 8, 2021
 
 # Participation Record (% of effort):
 Harlan Rich – 25 |
