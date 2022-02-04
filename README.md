@@ -1,10 +1,10 @@
 # BudgetBuddy
  
 # Authors:
-Harlan Rich
-Connor Hagen
-Alan Iahnis
-Samuel Turschic
+Harlan Rich |
+Connor Hagen |
+Alan Iahnis |
+Samuel Turschic |
 Warssay Habte
 
 # Reason For Designing Application:
