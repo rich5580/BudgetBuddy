@@ -34,9 +34,7 @@ Incorporated:
 3. Video demo of application and its functionality.
 
 # Project Benefits:
-1. Resume experience; available on GitHub
-2. Experience with Android Studio
-3. Resource we can promote
+- Experience with Android Studio
 
 # Project Risks: 
 1. Technical difficulties
